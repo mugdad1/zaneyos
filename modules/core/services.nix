@@ -1,6 +1,7 @@
 { profile, ... }: {
   # Services to start
   services = {
+    power-profiles-daemon.enable = true;
     upower.enable = true;
     resolved.enable = true;
     tailscale.enable = true;

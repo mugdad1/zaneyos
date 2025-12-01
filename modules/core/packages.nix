@@ -43,6 +43,7 @@ in
   environment.systemPackages = with pkgs;
     noctaliaPkgs
     ++ [
+      gearlever
       upower
       freetube
       wlsunset
@@ -52,6 +53,7 @@ in
       onlyoffice-desktopeditors
       trilium-desktop
       gpu-screen-recorder
+      power-profiles-daemon
       appimage-run # Needed For AppImage Support
       brightnessctl # For Screen Brightness Control
       cliphist # Clipboard manager using rofi menu
