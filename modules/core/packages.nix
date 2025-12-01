@@ -51,7 +51,7 @@ in
       safeeyes
       onlyoffice-desktopeditors
       trilium-desktop
-
+      gpu-screen-recorder
       appimage-run # Needed For AppImage Support
       brightnessctl # For Screen Brightness Control
       cliphist # Clipboard manager using rofi menu
