@@ -26,6 +26,7 @@ in
       ./amfora.nix
       ./bash.nix
       ./bashrc-personal.nix
+      ./overview.nix
       ./cli/bat.nix
       ./cli/btop.nix
       ./cli/bottom.nix
@@ -47,6 +48,7 @@ in
       ./rofi
       ./qt.nix
       ./scripts
+      ./overview.nix
       ./scripts/gemini-cli.nix
       ./stylix.nix
       ./swappy.nix
