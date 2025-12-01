@@ -12,7 +12,7 @@
   # Emable/disable bundled applications
   tmuxEnable = false;
   alacrittyEnable = false;
-  weztermEnable = false;
+  weztermEnable = true;
   ghosttyEnable = false;
   vscodeEnable = false;
   antigravityEnable = false; # Google port of vscodium
