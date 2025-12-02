@@ -43,6 +43,7 @@ in
   environment.systemPackages = with pkgs;
     noctaliaPkgs
     ++ [
+      fish
       gearlever
       upower
       freetube
