@@ -50,7 +50,7 @@ in
         "$modifier SHIFT,W, Web Search, exec, web-search"
         "$modifier ALT,W, Wallpaper Setter, exec, wallsetter"
         "$modifier SHIFT,N, Notification Reset, exec, swaync-client -rs"
-        "$modifier,W, Web Browser, exec, ${browser}"
+        "$modifier,B, Web Browser, exec, ${browser}"
         "$modifier,Y, File Manager, exec, kitty -e yazi"
         "$modifier,S, Screenshot, exec, screenshootin"
         # ============= SCREENSHOTS =============
@@ -64,7 +64,7 @@ in
         # ============= WINDOW MANAGEMENT =============
         "$modifier,Q, Kill Active Window, killactive,"
         "$modifier,P, Pseudo Tile, pseudo,"
-        "$modifier,V, Clipboard History, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        #"$modifier,V, Clipboard History, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
         "$modifier SHIFT,I, Toggle Split, togglesplit,"
         "$modifier,F, Maximize, fullscreen,"
         "$modifier SHIFT,F, Toggle Floating, togglefloating,"

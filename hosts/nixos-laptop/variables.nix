@@ -7,17 +7,17 @@
   # `tui` for Text login
   # `sddm` for graphical GUI (default)
   # SDDM background is set with stylixImage
-  displayManager = "sddm";
+  displayManager = "SDDM";
 
   # Emable/disable bundled applications
   tmuxEnable = false;
-  alacrittyEnable = true;
+  alacrittyEnable = false;
   weztermEnable = true;
-  ghosttyEnable = true;
+  ghosttyEnable = false;
   vscodeEnable = false;
   antigravityEnable = false; # Google port of vscodium
   # Note: This is evil-helix with VIM keybindings by default
-  helixEnable = false;
+  helixEnable = true;
   #To install: Enable here, zcli rebuild, then run zcli doom install
   doomEmacsEnable = false;
 
