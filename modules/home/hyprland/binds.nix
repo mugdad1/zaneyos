@@ -14,7 +14,7 @@ let
       "$modifier,A, Noctalia Launcher, exec, qs -c noctalia-shell ipc call launcher toggle"
       "$modifier SHIFT,Return, Noctalia Launcher, exec, qs -c noctalia-shell ipc call launcher toggle"
       "$modifier,M, Noctalia Notifications, exec, qs -c noctalia-shell ipc call notifications toggle"
-      #"$modifier,V, Noctalia Clipboard, exec, qs -c noctalia-shell ipc call launcher clipboard"
+      "$modifier,V, Noctalia Clipboard, exec, qs -c noctalia-shell ipc call launcher clipboard"
       "$modifier ALT,P, Noctalia Settings, exec, qs -c noctalia-shell ipc call settings toggle"
       "$modifier SHIFT,comma, Noctalia Settings, exec, qs -c noctalia-shell ipc call settings toggle"
       "$modifier ALT,L, Noctalia Lock Screen, exec, qs -c noctalia-shell ipc call sessionMenu lockAndSuspend"
@@ -44,7 +44,8 @@ in
         # ============= TERMINALS =============
         "$modifier,Return, Terminal, exec, ${terminal}"
         # ============= APPLICATION LAUNCHERS =============
-        "$modifier,K, Keybinds Help, exec, list-keybinds"
+        "$modifier,K, Keybinds Search Tool, exec, qs-keybinds"
+        "$modifier SHIFT,K, Legacy Keybinds Menu, exec, list-keybinds"
         "$modifier SHIFT,D, Discord, exec, discord"
         "$modifier SHIFT,W, Web Search, exec, web-search"
         "$modifier ALT,W, Wallpaper Setter, exec, wallsetter"

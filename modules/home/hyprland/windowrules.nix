@@ -1,9 +1,11 @@
-{host, ...}: let
+{ host, ... }:
+let
   inherit
     (import ../../../hosts/${host}/variables.nix)
     extraMonitorSettings
     ;
-in {
+in
+{
   wayland.windowManager.hyprland = {
     settings = {
       windowrule = [
@@ -39,6 +41,10 @@ in {
         "tag +settings, class:(.blueman-manager-wrapped)"
         "tag +settings, class:(nwg-displays)"
         "move 72% 7%,title:^(Picture-in-Picture)$"
+        # qs-keybinds floating viewer
+        "float, title:^(Hyprland Keybinds|Emacs Leader Keybinds|Kitty Configuration|WezTerm Configuration|Ghostty Configuration|Yazi Configuration)$"
+        "center, title:^(Hyprland Keybinds|Emacs Leader Keybinds|Kitty Configuration|WezTerm Configuration|Ghostty Configuration|Yazi Configuration)$"
+        "size 55% 66%, title:^(Hyprland Keybinds|Emacs Leader Keybinds|Kitty Configuration|WezTerm Configuration|Ghostty Configuration|Yazi Configuration)$"
         "center, class:^([Ff]erdium)$"
         "float, class:^([Ww]aypaper)$"
         "center, class:^(pavucontrol|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$"
@@ -80,3 +86,4 @@ in {
     };
   };
 }
+
