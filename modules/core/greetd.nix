@@ -2,7 +2,7 @@
 , username
 , ...
 }: {
-  services.tuigreet = {
+  services.greetd = {
     enable = true;
     settings = {
       default_session = {
