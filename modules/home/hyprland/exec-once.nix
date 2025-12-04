@@ -6,21 +6,23 @@ let
     stylixImage
     ;
   # Noctalia-specific startup commands
-  noctaliaExec = if barChoice == "noctalia" then [
-    "killall -q waybar"
-    "pkill waybar"
-    "killall -q swaync"
-    "pkill swaync"
-    "qs -c noctalia-shell"
-  ] else [];
+  noctaliaExec =
+    if barChoice == "noctalia" then [
+      "killall -q waybar"
+      "pkill waybar"
+      "killall -q swaync"
+      "pkill swaync"
+      "noctalia-shell"
+    ] else [ ];
   # Waybar-specific startup commands
-  waybarExec = if barChoice != "noctalia" then [
-    "killall -q swww;sleep .5 && swww-daemon"
-    "killall -q waybar;sleep .5 && waybar"
-    "killall -q swaync;sleep .5 && swaync"
-    "nm-applet --indicator"
-    "sleep 1.0 && swww img ${stylixImage}"
-  ] else [];
+  waybarExec =
+    if barChoice != "noctalia" then [
+      "killall -q swww;sleep .5 && swww-daemon"
+      "killall -q waybar;sleep .5 && waybar"
+      "killall -q swaync;sleep .5 && swaync"
+      "nm-applet --indicator"
+      "sleep 1.0 && swww img ${stylixImage}"
+    ] else [ ];
 in
 {
   wayland.windowManager.hyprland.settings = {
