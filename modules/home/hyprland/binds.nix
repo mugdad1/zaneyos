@@ -11,17 +11,16 @@ let
   noctaliaBind =
     if barChoice == "noctalia"
     then [
-      "$modifier,A, Noctalia Launcher, exec, qs -c noctalia-shell ipc call launcher toggle"
-      "$modifier SHIFT,Return, Noctalia Launcher, exec, qs -c noctalia-shell ipc call launcher toggle"
-      "$modifier,M, Noctalia Notifications, exec, qs -c noctalia-shell ipc call notifications toggle"
-      "$modifier,V, Noctalia Clipboard, exec, qs -c noctalia-shell ipc call launcher clipboard"
-      "$modifier ALT,P, Noctalia Settings, exec, qs -c noctalia-shell ipc call settings toggle"
-      "$modifier SHIFT,comma, Noctalia Settings, exec, qs -c noctalia-shell ipc call settings toggle"
-      "$modifier ALT,L, Noctalia Lock Screen, exec, qs -c noctalia-shell ipc call sessionMenu lockAndSuspend"
-      "$modifier SHIFT,Y, Noctalia Wallpaper, exec, qs -c noctalia-shell ipc call wallpaper toggle"
-      "$modifier,X, Noctalia Power Menu, exec, dms qs -c noctalia-shell ipc call sessionMenu toggle"
-      "$modifier,C, Noctalia Control Center, exec, qs -c noctalia-shell ipc call controlCenter toggle"
-      "$modifier CTRL,R, Noctalia Screen Recorder, exec, qs -c noctalia-shell ipc call screenRecorder toggle"
+      "$modifier,A, Noctalia Launcher, exec, noctalia-shell ipc call launcher toggle"
+      "$modifier,M, Noctalia Notifications, exec, noctalia-shell ipc call notifications toggleHistory"
+      "$modifier,V, Noctalia Clipboard, exec, noctalia-shell ipc call launcher clipboard"
+      "$modifier ALT,P, Noctalia Settings, exec, noctalia-shell ipc call settings toggle"
+      "$modifier SHIFT,comma, Noctalia Settings, exec, noctalia-shell ipc call settings toggle"
+      "$modifier ALT,L, Noctalia Lock Screen, exec, noctalia-shell ipc call sessionMenu lockAndSuspend"
+      "$modifier SHIFT,Y, Noctalia Wallpaper, exec, noctalia-shell ipc call wallpaper toggle"
+      "$modifier,X, Noctalia Power Menu, exec,noctalia-shell ipc call sessionMenu toggle"
+      "$modifier,C, Noctalia Control Center, exec, noctalia-shell ipc call controlCenter toggle"
+      "$modifier CTRL,R, Noctalia Screen Recorder, exec, noctalia-shell ipc call screenRecorder toggle"
     ]
     else [ ];
   # Rofi launcher bindings (only included when barChoice != "noctalia")
