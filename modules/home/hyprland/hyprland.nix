@@ -1,14 +1,18 @@
 { host
 , config
 , pkgs
+, lib
 , ...
 }:
 let
-  inherit (import ../../../hosts/${host}/variables.nix)
-    extraMonitorSettings
-    keyboardLayout
-    stylixImage
-    ;
+  vars = import ../../../hosts/${host}/variables.nix;
+  extraMonitorSettings = vars.extraMonitorSettings or "";
+  keyboardLayout = vars.keyboardLayout or "us";
+  keyboardVariant = vars.keyboardVariant or "";
+  stylixImage = vars.stylixImage or null;
+  layoutIsVariant = builtins.elem keyboardLayout [ "dvorak" "colemak" "workman" "intl" "us-intl" ];
+  hyprKbLayout = if (keyboardVariant != "" || layoutIsVariant) then "us" else keyboardLayout;
+  hyprKbVariant = if (keyboardVariant != "") then keyboardVariant else if layoutIsVariant then keyboardLayout else "";
 in
 {
   home.packages = with pkgs; [
@@ -47,7 +51,7 @@ in
       enable = true;
     };
     settings = {
-      input = {
+      input = ({
         kb_layout = "us,ara";
         kb_options = [
           "grp:alt_shift_toggle"
@@ -62,7 +66,7 @@ in
           disable_while_typing = true;
           scroll_factor = 0.8;
         };
-      };
+      } // lib.optionalAttrs (hyprKbVariant != "") { kb_variant = hyprKbVariant; });
 
       gestures = {
         gesture = [ "3, horizontal, workspace" ];
@@ -161,7 +165,7 @@ in
 
     extraConfig = "
       monitor=,preferred,auto,auto
-      monitor=,preferred,auto,auto
+      monitor=Virtual-1,1920x1080@60,auto,1
       ${
             extraMonitorSettings
           }

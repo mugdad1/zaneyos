@@ -49,9 +49,10 @@
   # Kitty, ghostty, wezterm, aalacrity
   # Note: kitty, wezterm, alacritty have to be enabled in `variables.nix`
   # Setting it here does not enable it. Kitty is installed by default
-  terminal = "kitty"; # Set Default System Terminal
+  terminal = "wezterm"; # Set Default System Terminal
 
   keyboardLayout = "us";
+  keyboardVariant = "";
   consoleKeyMap = "us";
 
   # For hybrid support (Intel/NVIDIA Prime or AMD/NVIDIA)

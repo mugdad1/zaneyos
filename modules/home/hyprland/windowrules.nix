@@ -45,6 +45,10 @@ in
         "float, title:^(Hyprland Keybinds|Emacs Leader Keybinds|Kitty Configuration|WezTerm Configuration|Ghostty Configuration|Yazi Configuration)$"
         "center, title:^(Hyprland Keybinds|Emacs Leader Keybinds|Kitty Configuration|WezTerm Configuration|Ghostty Configuration|Yazi Configuration)$"
         "size 55% 66%, title:^(Hyprland Keybinds|Emacs Leader Keybinds|Kitty Configuration|WezTerm Configuration|Ghostty Configuration|Yazi Configuration)$"
+        # qs-cheatsheets floating viewer
+        "float, title:^(Cheatsheets Viewer)$"
+        "center, title:^(Cheatsheets Viewer)$"
+        "size 65% 60%, title:^(Cheatsheets Viewer)$"
         "center, class:^([Ff]erdium)$"
         "float, class:^([Ww]aypaper)$"
         "center, class:^(pavucontrol|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$"
