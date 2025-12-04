@@ -164,7 +164,7 @@ in
     };
 
     extraConfig = "
-      monitor=,preferred,auto,auto
+      monitor=,preferred,auto,1.33
       monitor=Virtual-1,1920x1080@60,auto,1
       ${
             extraMonitorSettings
