@@ -44,9 +44,9 @@
     } @ inputs:
     let
       system = "x86_64-linux";
-      host = "nixos-laptop";
-      profile = "intel";
-      username = "mugdad";
+    host = "nixos-laptop";
+    profile = "intel";
+    username = "mugdad";
 
       # Deduplicate nixosConfigurations while preserving the top-level 'profile'
       mkNixosConfig = gpuProfile:
