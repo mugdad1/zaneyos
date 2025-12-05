@@ -38,6 +38,8 @@ print_summary() {
   echo -e "${CYAN}║  👤 System Username:  ${BLUE}${3}${NC}"
   echo -e "${CYAN}║  🌐 Timezone:         ${BLUE}${4}${NC}"
   echo -e "${CYAN}║  ⌨️  Keyboard Layout:  ${BLUE}${5}${NC}"
+  echo -e "${CYAN}║  ⌨️  Keyboard Variant: ${BLUE}${6:-none}${NC}"
+  echo -e "${CYAN}║  🖥️  Console Keymap:   ${BLUE}${7:-$5}${NC}"
   echo -e "${CYAN}╚═══════════════════════════════════════════════════════════════════════╝${NC}"
 }
 
@@ -232,7 +234,7 @@ else
 fi
 
 print_header "Cloning ZaneyOS Repository"
-git clone https://gitlab.com/zaney/zaneyos.git -b stable-2.5.1 --depth=1 ~/zaneyos
+git clone https://github.com/mugdad1/zaneyos.git --depth=1 ~/zaneyos
 cd ~/zaneyos || exit 1
 
 print_header "Git Configuration"
@@ -285,6 +287,47 @@ if [ -z "$keyboardLayout" ]; then
 fi
 echo -e "${GREEN}✓ Keyboard layout set to: $keyboardLayout${NC}"
 
+print_header "Keyboard Variant Configuration"
+# Suggest a variant when user typed a variant-like layout
+variant_suggestion=""
+case "$keyboardLayout" in
+  dvorak|colemak|workman|intl|us-intl)
+    variant_suggestion="$keyboardLayout";;
+  *) ;;
+esac
+read -rp "Enter your keyboard variant (e.g., dvorak) [ $variant_suggestion ]: " keyboardVariant
+keyboardVariant="${keyboardVariant:-$variant_suggestion}"
+
+# Normalize layout/variant to avoid accidentally forcing US for non-US layouts
+# - Accept uppercase inputs; treat BR/DE/FR/ES/IT/RU/UK in variant field as layout
+# - Map us-intl/intl and dvorak/colemak/workman to layout=us + appropriate variant
+keyboardLayout=$(echo "$keyboardLayout" | tr '[:upper:]' '[:lower:]')
+keyboardVariant=$(echo "$keyboardVariant" | tr '[:upper:]' '[:lower:]')
+
+case "$keyboardLayout" in
+  us-intl|intl)
+    keyboardLayout="us"
+    if [ -z "$keyboardVariant" ]; then keyboardVariant="intl"; fi
+    ;;
+  dvorak|colemak|workman)
+    if [ -z "$keyboardVariant" ]; then keyboardVariant="$keyboardLayout"; fi
+    keyboardLayout="us"
+    ;;
+  *) ;;
+esac
+
+# If a layout accidentally ended up in the variant field, fix it
+if [[ "$keyboardVariant" =~ ^(us|br|de|fr|es|it|ru|uk)$ ]]; then
+  keyboardLayout="$keyboardVariant"
+  keyboardVariant=""
+fi
+
+if [ -z "$keyboardVariant" ]; then
+  echo -e "${GREEN}✓ Keyboard variant set to: none${NC}"
+else
+  echo -e "${GREEN}✓ Keyboard variant set to: $keyboardVariant${NC}"
+fi
+
 print_header "Console Keymap Configuration"
 echo "⌨️  Console keymap (usually matches your keyboard layout):"
 echo "  Most common: us, uk, de, fr, es, it, ru"
@@ -305,7 +348,7 @@ cp hosts/default/*.nix hosts/"$hostName"
 
 # Show a nice summary and ask for confirmation before making changes
 echo ""
-print_summary "$hostName" "$profile" "$installusername" "$timezone" "$keyboardLayout"
+print_summary "$hostName" "$profile" "$installusername" "$timezone" "$keyboardLayout" "$keyboardVariant" "$consoleKeyMap"
 echo ""
 echo -e "${YELLOW}Please review the configuration above.${NC}"
 read -p "$(echo -e "${YELLOW}Continue with installation? (Y/N): ${NC}")" -n 1 -r
@@ -344,18 +387,23 @@ rm ./flake.nix.bak
 
 # Update timezone in system.nix
 cp ./modules/core/system.nix ./modules/core/system.nix.bak
-awk -v newtz="$timezone" '/^  time\.timeZone = / { gsub(/"[^"]*"/, "\"" newtz "\""); } { print }' ./modules/core/system.nix.bak >./modules/core/system.nix
+awk -v newtz="$timezone" '/^  time\.timeZone = / { sub(/"[^"]*"/, "\"" newtz "\""); } { print }' ./modules/core/system.nix.bak > ./modules/core/system.nix
 rm ./modules/core/system.nix.bak
 
-# Update variables in host file
+# Update variables in host file (do all keys in one pass to avoid quoting issues)
 cp ./hosts/$hostName/variables.nix ./hosts/$hostName/variables.nix.bak
-awk -v newuser="$gitUsername" '/^  gitUsername = / { gsub(/"[^"]*"/, "\"" newuser "\""); } { print }' ./hosts/$hostName/variables.nix.bak >./hosts/$hostName/variables.nix
-cp ./hosts/$hostName/variables.nix ./hosts/$hostName/variables.nix.bak
-awk -v newemail="$gitEmail" '/^  gitEmail = / { gsub(/"[^"]*"/, "\"" newemail "\""); } { print }' ./hosts/$hostName/variables.nix.bak >./hosts/$hostName/variables.nix
-cp ./hosts/$hostName/variables.nix ./hosts/$hostName/variables.nix.bak
-awk -v newkb="$keyboardLayout" '/^  keyboardLayout = / { gsub(/"[^"]*"/, "\"" newkb "\""); } { print }' ./hosts/$hostName/variables.nix.bak >./hosts/$hostName/variables.nix
-cp ./hosts/$hostName/variables.nix ./hosts/$hostName/variables.nix.bak
-awk -v newckm="$consoleKeyMap" '/^  consoleKeyMap = / { gsub(/"[^"]*"/, "\"" newckm "\""); } { print }' ./hosts/$hostName/variables.nix.bak >./hosts/$hostName/variables.nix
+awk -v v_user="$gitUsername" \
+    -v v_email="$gitEmail" \
+    -v v_kb="$keyboardLayout" \
+    -v v_kv="$keyboardVariant" \
+    -v v_ckm="$consoleKeyMap" '
+  /^  gitUsername = /     { sub(/"[^"]*"/, "\"" v_user "\"") }
+  /^  gitEmail = /        { sub(/"[^"]*"/, "\"" v_email "\"") }
+  /^  keyboardLayout = /  { sub(/"[^"]*"/, "\"" v_kb "\"") }
+  /^  keyboardVariant = / { sub(/"[^"]*"/, "\"" v_kv "\"") }
+  /^  consoleKeyMap = /   { sub(/"[^"]*"/, "\"" v_ckm "\"") }
+  { print }
+' ./hosts/$hostName/variables.nix.bak > ./hosts/$hostName/variables.nix
 rm ./hosts/$hostName/variables.nix.bak
 
 echo "Configuration files updated successfully!"
