@@ -43,6 +43,7 @@ in
   environment.systemPackages = with pkgs;
     noctaliaPkgs
     ++ [
+      gnome-disk-utility
       fish
       gearlever
       upower
