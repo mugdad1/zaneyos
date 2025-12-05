@@ -68,7 +68,7 @@ in
       ffmpeg # Terminal Video / Audio Editing
       file-roller # Archive Manager
       gedit # Simple Graphical Text Editor
-      gimp # Great Photo Editor
+      #gimp # Great Photo Editor
       mesa-demos # needed for inxi diag util
       tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
       htop # Simple Terminal Based System Monitor
