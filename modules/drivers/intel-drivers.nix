@@ -18,6 +18,7 @@ in
         intel-media-driver
         intel-vaapi-driver
         libva-vdpau-driver
+        vpl-gpu-rt
         libvdpau-va-gl
       ];
     };
