@@ -43,7 +43,7 @@ in
   environment.systemPackages = with pkgs;
     noctaliaPkgs
     ++ [
-      python
+      pycharm-community
       jellyfin-mpv-shim
       gnome-disk-utility
       fish
