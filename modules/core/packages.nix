@@ -42,6 +42,8 @@ in
   environment.systemPackages = with pkgs;
     noctaliaPkgs
     ++ [
+      obs-studio-plugins.obs-gstreamer
+      obs-studio-plugins.wlrobs
       jellyfin-mpv-shim
       gnome-disk-utility
       fish
