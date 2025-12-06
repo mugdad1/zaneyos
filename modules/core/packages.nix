@@ -43,6 +43,7 @@ in
   environment.systemPackages = with pkgs;
     noctaliaPkgs
     ++ [
+      jellyfin-mpv-shim
       gnome-disk-utility
       fish
       gearlever
