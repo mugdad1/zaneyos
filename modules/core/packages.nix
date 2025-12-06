@@ -21,7 +21,6 @@ in
       enable = true;
       defaultEditor = true;
     };
-    firefox.enable = true; # Firefox is not installed by default
     hyprland = {
       enable = true; # set this so desktop file is created
       withUWSM = false;
@@ -43,11 +42,11 @@ in
   environment.systemPackages = with pkgs;
     noctaliaPkgs
     ++ [
-      pycharm-community
       jellyfin-mpv-shim
       gnome-disk-utility
       fish
       gearlever
+      firefox-bin
       upower
       freetube
       wlsunset
@@ -70,6 +69,7 @@ in
       ffmpeg # Terminal Video / Audio Editing
       file-roller # Archive Manager
       gedit # Simple Graphical Text Editor
+      jetbrains.pycharm-community-bin
       #gimp # Great Photo Editor
       mesa-demos # needed for inxi diag util
       tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
