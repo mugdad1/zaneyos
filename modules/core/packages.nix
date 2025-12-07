@@ -71,7 +71,6 @@ in
       ffmpeg # Terminal Video / Audio Editing
       file-roller # Archive Manager
       gedit # Simple Graphical Text Editor
-      jetbrains.pycharm-community-bin
       #gimp # Great Photo Editor
       mesa-demos # needed for inxi diag util
       tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
