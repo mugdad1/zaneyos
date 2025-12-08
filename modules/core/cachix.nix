@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   nix.settings = {
     substituters = lib.mkAfter [
       "https://cache.nixos.org"

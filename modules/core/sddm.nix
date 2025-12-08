@@ -65,7 +65,7 @@ in {
   services.displayManager = {
     sddm = {
       package = pkgs.kdePackages.sddm;
-      extraPackages = [ sddm-astronaut ];
+      extraPackages = [sddm-astronaut];
       enable = true;
       wayland.enable = true;
       theme = "sddm-astronaut-theme";
@@ -87,8 +87,8 @@ in {
     vars = import ../../hosts/${host}/variables.nix;
     keyboardLayout = vars.keyboardLayout or "us";
     keyboardVariant = vars.keyboardVariant or "";
-  in ({ XKB_DEFAULT_LAYOUT = keyboardLayout; }
-      // lib.optionalAttrs (keyboardVariant != "") { XKB_DEFAULT_VARIANT = keyboardVariant; });
+  in ({XKB_DEFAULT_LAYOUT = keyboardLayout;}
+    // lib.optionalAttrs (keyboardVariant != "") {XKB_DEFAULT_VARIANT = keyboardVariant;});
 
-  environment.systemPackages = [ sddm-astronaut ];
+  environment.systemPackages = [sddm-astronaut];
 }

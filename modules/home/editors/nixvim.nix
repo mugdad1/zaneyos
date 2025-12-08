@@ -169,7 +169,7 @@
         enable = true;
         settings = {
           formatters_by_ft = {
-            nix = ["nixpkgs_fmt"];
+            nix = ["alejandra"];
             lua = ["stylua"];
             javascript = ["prettierd"];
             typescript = ["prettierd"];

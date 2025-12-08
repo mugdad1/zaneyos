@@ -1,8 +1,9 @@
-{ inputs
-, config
-, ...
+{
+  inputs,
+  config,
+  ...
 }: {
-  imports = [ inputs.nvf.homeManagerModules.default ];
+  imports = [inputs.nvf.homeManagerModules.default];
 
   programs.nvf = {
     enable = true;
@@ -50,55 +51,55 @@
       keymaps = [
         {
           key = "jk";
-          mode = [ "i" ];
+          mode = ["i"];
           action = "<ESC>";
           desc = "Exit insert mode";
         }
         {
           key = "<leader>nh";
-          mode = [ "n" ];
+          mode = ["n"];
           action = ":nohl<CR>";
           desc = "Clear search highlights";
         }
         {
           key = "<leader>ff";
-          mode = [ "n" ];
+          mode = ["n"];
           action = "<cmd>Telescope find_files<cr>";
           desc = "Search files by name";
         }
         {
           key = "<leader>lg";
-          mode = [ "n" ];
+          mode = ["n"];
           action = "<cmd>Telescope live_grep<cr>";
           desc = "Search files by contents";
         }
         {
           key = "<leader>fe";
-          mode = [ "n" ];
+          mode = ["n"];
           action = "<cmd>Neotree toggle<cr>";
           desc = "File browser toggle";
         }
         {
           key = "<C-h>";
-          mode = [ "i" ];
+          mode = ["i"];
           action = "<Left>";
           desc = "Move left in insert mode";
         }
         {
           key = "<C-j>";
-          mode = [ "i" ];
+          mode = ["i"];
           action = "<Down>";
           desc = "Move down in insert mode";
         }
         {
           key = "<C-k>";
-          mode = [ "i" ];
+          mode = ["i"];
           action = "<Up>";
           desc = "Move up in insert mode";
         }
         {
           key = "<C-l>";
-          mode = [ "i" ];
+          mode = ["i"];
           action = "<Right>";
           desc = "Move right in insert mode";
         }
@@ -108,7 +109,7 @@
 
       spellcheck = {
         enable = true;
-        languages = [ "en" ];
+        languages = ["en"];
         programmingWordlist.enable = true;
       };
 
@@ -223,7 +224,7 @@
       comments = {
         comment-nvim.enable = true;
       };
-      
+
       luaConfigPost = ''
         -- Nix LSP (nil) configuration for auto-eval-inputs
         local lspconfig = require('lspconfig')
@@ -236,7 +237,7 @@
             },
           },
         })
-        
+
         -- Auto-update programming wordlist on first startup
         vim.api.nvim_create_autocmd("VimEnter", {
           callback = function()
@@ -258,7 +259,7 @@
     dirtytalkUpdate = ''
       # Create the spell directory if it doesn't exist
       mkdir -p "$HOME/.local/share/nvim/site/spell"
-      
+
       # Try to run DirtytalkUpdate in headless mode with better error handling
       if ! ${config.programs.nvf.finalPackage}/bin/nvim --headless -c "DirtytalkUpdate" -c "qa!" 2>/dev/null; then
         echo "Note: DirtytalkUpdate will run automatically on first Neovim startup"

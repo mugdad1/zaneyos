@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{pkgs, ...}:
 pkgs.writeShellScriptBin "note" ''
 
   # Colors for nice output
@@ -16,7 +16,7 @@ pkgs.writeShellScriptBin "note" ''
   # XDG-compliant notes directory and file
   NOTES_DIR="$HOME/.local/share/notes"
   NOTES_FILE="$NOTES_DIR/notes.txt"
-  
+
   # Create notes directory if it doesn't exist
   mkdir -p "$NOTES_DIR"
 
@@ -42,24 +42,24 @@ pkgs.writeShellScriptBin "note" ''
     local note_text="$1"
     local timestamp=$(date '+%Y-%m-%d %H:%M:%S')
     local date_only=$(date '+%Y-%m-%d')
-    
+
     # Create notes file if it doesn't exist
     touch "$NOTES_FILE"
-    
+
     # Get next note number
     local note_num=1
     if [ -f "$NOTES_FILE" ] && [ -s "$NOTES_FILE" ]; then
       note_num=$(grep -E "^#[0-9]+" "$NOTES_FILE" | sed 's/^#\([0-9]*\).*/\1/' | sort -n | tail -1)
       note_num=$((note_num + 1))
     fi
-    
+
     # Add the note with proper formatting
     {
       echo "#$note_num [$timestamp]"
       echo "$note_text"
       echo ""
     } >> "$NOTES_FILE"
-    
+
     echo -e "''${GREEN}✓''${NC} Note #$note_num added ''${GRAY}($date_only)''${NC}"
   }
 
@@ -70,14 +70,14 @@ pkgs.writeShellScriptBin "note" ''
       echo -e "''${GRAY}Use ''${CYAN}note <text>''${GRAY} to add your first note''${NC}"
       return
     fi
-    
+
     echo -e "''${BOLD}''${BLUE}📝 Your Notes''${NC}"
     echo -e "''${GRAY}📁 $NOTES_FILE''${NC}"
     echo -e "''${GRAY}$(printf '%.0s─' {1..50})''${NC}"
-    
+
     local in_note=false
     local note_content=""
-    
+
     while IFS= read -r line; do
       # Check if line starts with # followed by numbers and space and [
       if echo "$line" | grep -q "^#[0-9][0-9]* \["; then
@@ -86,13 +86,13 @@ pkgs.writeShellScriptBin "note" ''
           echo -e "$note_content"
           echo ""
         fi
-        
+
         # Extract note number and timestamp
         local num=$(echo "$line" | sed 's/^#\([0-9]*\) \[.*/\1/')
         local timestamp=$(echo "$line" | sed 's/^#[0-9]* \[\(.*\)\]/\1/')
         local date_part=$(echo "$timestamp" | cut -d' ' -f1)
         local time_part=$(echo "$timestamp" | cut -d' ' -f2)
-        
+
         echo -e "''${BOLD}''${CYAN}#$num''${NC} ''${GRAY}[$date_part ''${YELLOW}$time_part''${GRAY}]''${NC}"
         in_note=true
         note_content=""
@@ -113,13 +113,13 @@ pkgs.writeShellScriptBin "note" ''
         note_content=""
       fi
     done < "$NOTES_FILE"
-    
+
     # Print last note if file doesn't end with empty line
     if [ "$in_note" = true ] && [ -n "$note_content" ]; then
       echo -e "$note_content"
       echo ""
     fi
-    
+
     local total_notes=$(grep -c "^#[0-9]" "$NOTES_FILE")
     echo -e "''${GRAY}$(printf '%.0s─' {1..50})''${NC}"
     echo -e "''${GRAY}Total: ''${BOLD}$total_notes''${NC} ''${GRAY}notes''${NC}"
@@ -128,27 +128,27 @@ pkgs.writeShellScriptBin "note" ''
   # Function to delete a note
   delete_note() {
     local note_num="$1"
-    
+
     if [ ! -f "$NOTES_FILE" ] || [ ! -s "$NOTES_FILE" ]; then
       echo -e "''${RED}✗''${NC} No notes found"
       return 1
     fi
-    
+
     if ! echo "$note_num" | grep -q "^[0-9][0-9]*$"; then
       echo -e "''${RED}✗''${NC} Invalid note number: $note_num"
       return 1
     fi
-    
+
     # Check if note exists
     if ! grep -q "^#$note_num " "$NOTES_FILE"; then
       echo -e "''${RED}✗''${NC} Note #$note_num not found"
       return 1
     fi
-    
+
     # Create temporary file without the specified note
     local temp_file=$(mktemp)
     local skip_lines=false
-    
+
     while IFS= read -r line; do
       if echo "$line" | grep -q "^#[0-9][0-9]* "; then
         local current_num=$(echo "$line" | sed 's/^#\([0-9]*\) .*/\1/')
@@ -159,7 +159,7 @@ pkgs.writeShellScriptBin "note" ''
           skip_lines=false
         fi
       fi
-      
+
       if [ "$skip_lines" = false ]; then
         echo "$line" >> "$temp_file"
       elif [ -z "$line" ]; then
@@ -167,7 +167,7 @@ pkgs.writeShellScriptBin "note" ''
         skip_lines=false
       fi
     done < "$NOTES_FILE"
-    
+
     mv "$temp_file" "$NOTES_FILE"
     echo -e "''${GREEN}✓''${NC} Note #$note_num deleted"
   }
@@ -178,11 +178,11 @@ pkgs.writeShellScriptBin "note" ''
       echo -e "''${YELLOW}📝 No notes to clear''${NC}"
       return
     fi
-    
+
     local total_notes=$(grep -c "^#[0-9]" "$NOTES_FILE")
     echo -e "''${YELLOW}⚠''${NC}  This will delete all $total_notes notes. Are you sure? ''${GRAY}[y/N]''${NC}"
     read -r confirmation
-    
+
     if echo "$confirmation" | grep -qi "^y"; then
       > "$NOTES_FILE"
       echo -e "''${GREEN}✓''${NC} All notes cleared"
@@ -204,7 +204,7 @@ pkgs.writeShellScriptBin "note" ''
           piped_content="$piped_content"$'\n'"$line"
         fi
       done
-      
+
       if [ -n "$piped_content" ]; then
         add_note "$piped_content"
       else
@@ -213,7 +213,7 @@ pkgs.writeShellScriptBin "note" ''
       fi
       return
     fi
-    
+
     # Handle command line arguments
     case "$1" in
       "")

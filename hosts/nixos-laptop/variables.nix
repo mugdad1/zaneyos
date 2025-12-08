@@ -12,12 +12,12 @@
   # Emable/disable bundled applications
   tmuxEnable = false;
   alacrittyEnable = false;
-  weztermEnable = true;
+  weztermEnable = false;
   ghosttyEnable = true;
   vscodeEnable = false;
   antigravityEnable = false; # Google port of vscodium
   # Note: This is evil-helix with VIM keybindings by default
-  helixEnable = true;
+  helixEnable = false;
   #To install: Enable here, zcli rebuild, then run zcli doom install
   doomEmacsEnable = false;
 

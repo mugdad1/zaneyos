@@ -7,6 +7,22 @@
 
 # 🚀 **Current Release - ZaneyOS v2.5.4**
 
+#### 📅 **Updated: December 7th, 2025**
+
+- Added `alejandra` formatter to `flake.nix`
+  - ran `nix fmt ./` and updated all files to current format spec
+- Added `alejandra` as default formatter in `nixvim.nix`
+- Hybrid GPU detection fails in `install-zaneyos.sh`
+  - Should be `nvidia-laptop` not `hybrid`
+    - Thanks to sasek @sasek333 for spotting this
+
+#### 📅 **Updated: December 6th, 2025**
+
+- Changed:
+  - Quickshell now comes fromm NixPkgs.
+  - No more compiling on rebuilds
+  - Remove Flake input and input in `quickshell.nix`
+
 #### 📅 **Updated: December 3rd, 2025**
 
 - Added:

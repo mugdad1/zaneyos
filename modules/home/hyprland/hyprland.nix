@@ -4,8 +4,7 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   vars = import ../../../hosts/${host}/variables.nix;
   extraMonitorSettings = vars.extraMonitorSettings or "";
   keyboardLayout = vars.keyboardLayout or "us";
@@ -13,24 +12,37 @@ let
   stylixImage = vars.stylixImage or null;
 
   # Treat only known US-based variants as implying layout = "us".
-  usVariants = [ "dvorak" "colemak" "workman" "intl" "us-intl" "altgr-intl" ];
-  normalizeUSVariant = v: if v == "us-intl" then "intl" else v;
+  usVariants = ["dvorak" "colemak" "workman" "intl" "us-intl" "altgr-intl"];
+  normalizeUSVariant = v:
+    if v == "us-intl"
+    then "intl"
+    else v;
 
   # If layout itself is a US variant (e.g., "dvorak", "us-intl"), normalize it
-  layoutFromLayout = if builtins.elem keyboardLayout usVariants then "us" else keyboardLayout;
-  variantFromLayout = if builtins.elem keyboardLayout usVariants then normalizeUSVariant keyboardLayout else "";
+  layoutFromLayout =
+    if builtins.elem keyboardLayout usVariants
+    then "us"
+    else keyboardLayout;
+  variantFromLayout =
+    if builtins.elem keyboardLayout usVariants
+    then normalizeUSVariant keyboardLayout
+    else "";
 
   # If the provided variant is a US variant, force layout to us; otherwise keep layout
-  layoutFromVariant = if builtins.elem keyboardVariant usVariants then "us" else layoutFromLayout;
+  layoutFromVariant =
+    if builtins.elem keyboardVariant usVariants
+    then "us"
+    else layoutFromLayout;
   variantFinal =
-    if builtins.elem keyboardVariant usVariants then normalizeUSVariant keyboardVariant
-    else if variantFromLayout != "" then variantFromLayout
+    if builtins.elem keyboardVariant usVariants
+    then normalizeUSVariant keyboardVariant
+    else if variantFromLayout != ""
+    then variantFromLayout
     else keyboardVariant;
 
   hyprKbLayout = layoutFromVariant;
   hyprKbVariant = variantFinal;
-in
-{
+in {
   home.packages = with pkgs; [
     swww
     grim
@@ -61,31 +73,33 @@ in
     systemd = {
       enable = true;
       enableXdgAutostart = true;
-      variables = [ "--all" ];
+      variables = ["--all"];
     };
     xwayland = {
       enable = true;
     };
     settings = {
-      input = ({
-        kb_layout = "us,ara";
-        kb_options = [
-          "grp:alt_shift_toggle"
-        ];
-        numlock_by_default = true;
-        repeat_delay = 300;
-        follow_mouse = 1;
-        float_switch_override_focus = 0;
-        sensitivity = 0;
-        touchpad = {
-          natural_scroll = true;
-          disable_while_typing = true;
-          scroll_factor = 0.8;
-        };
-      } // lib.optionalAttrs (hyprKbVariant != "") { kb_variant = hyprKbVariant; });
+      input =
+        {
+          kb_layout = "us,ara";
+          kb_options = [
+            "grp:alt_shift_toggle"
+          ];
+          numlock_by_default = true;
+          repeat_delay = 300;
+          follow_mouse = 1;
+          float_switch_override_focus = 0;
+          sensitivity = 0;
+          touchpad = {
+            natural_scroll = true;
+            disable_while_typing = true;
+            scroll_factor = 0.8;
+          };
+        }
+        // lib.optionalAttrs (hyprKbVariant != "") {kb_variant = hyprKbVariant;};
 
       gestures = {
-        gesture = [ "3, horizontal, workspace" ];
+        gesture = ["3, horizontal, workspace"];
         workspace_swipe_distance = 500;
         workspace_swipe_invert = true;
         workspace_swipe_min_speed_to_force = 30;
@@ -101,8 +115,7 @@ in
         gaps_out = 8;
         border_size = 2;
         resize_on_border = true;
-        "col.active_border" =
-          "rgb(${config.lib.stylix.colors.base08}) rgb(${config.lib.stylix.colors.base0C}) 45deg";
+        "col.active_border" = "rgb(${config.lib.stylix.colors.base08}) rgb(${config.lib.stylix.colors.base0C}) 45deg";
         "col.inactive_border" = "rgb(${config.lib.stylix.colors.base01})";
       };
 
@@ -180,11 +193,9 @@ in
     };
 
     extraConfig = "
-      monitor=,preferred,auto,1.33
+      monitor=,preferred,auto,auto
       monitor=Virtual-1,1920x1080@60,auto,1
-      ${
-            extraMonitorSettings
-          }
+      ${extraMonitorSettings}
       # To enable blur on waybar uncomment the line below
       # Thanks to SchotjeChrisman
       #layerrule = blur,waybar

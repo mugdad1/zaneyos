@@ -1,4 +1,4 @@
-{ profile, ... }: {
+{profile, ...}: {
   # Services to start
   services = {
     resolved.enable = true;
@@ -15,7 +15,7 @@
         PasswordAuthentication = true; #Users can SSH using kb and password
         KbdInteractiveAuthentication = true;
       };
-      ports = [ 22 ];
+      ports = [22];
     };
     blueman.enable = true; # Bluetooth Support
     tumbler.enable = true; # Image/video preview

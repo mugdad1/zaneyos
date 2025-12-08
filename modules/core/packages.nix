@@ -1,8 +1,8 @@
-{ pkgs
-, host
-, ...
-}:
-let
+{
+  pkgs,
+  host,
+  ...
+}: let
   vars = import ../../hosts/${host}/variables.nix;
   inherit (vars) barChoice;
   # Noctalia-specific packages
@@ -13,9 +13,8 @@ let
         matugen # color palette generator needed for noctalia-shell
         app2unit # launcher for noctalia-shell
       ]
-    else [ ];
-in
-{
+    else [];
+in {
   programs = {
     neovim = {
       enable = true;
@@ -59,18 +58,25 @@ in
       onlyoffice-desktopeditors
       trilium-desktop
       power-profiles-daemon
+      alejandra # nix formatter
+      amfora # Fancy Terminal Browser For Gemini Protocol
       appimage-run # Needed For AppImage Support
+      brave # Brave Browser
       brightnessctl # For Screen Brightness Control
       cliphist # Clipboard manager using rofi menu
       cmatrix # Matrix Movie Effect In Terminal
       cowsay # Great Fun Terminal Program
       discord # Stable client
+      discord-canary # beta  client
+      docker-compose # Allows Controlling Docker From A Single File
       duf # Utility For Viewing Disk Usage In Terminal
       dysk # Disk space util nice formattting
       eza # Beautiful ls Replacement
       ffmpeg # Terminal Video / Audio Editing
       file-roller # Archive Manager
       gedit # Simple Graphical Text Editor
+      gemini-cli # CLI AI client ONLY (optional)
+      gimp # Great Photo Editor
       gpu-screen-recorder # needed for nnoctalia-shell
       power-profiles-daemon # needed for noctalia-shell power cycle
       mesa-demos # needed for inxi diag util
@@ -104,6 +110,7 @@ in
       upower # noctalia shell battery
       uwsm # Universal Wayland Session Manager (optional must be enabled)
       v4l-utils # Used For Things Like OBS Virtual Camera
+      warp-terminal # Terminal with AI support build in
       waypaper # Change wallpaper
       wget # Tool For Fetching Files With Links
       ytmdl # Tool For Downloading Audio From YouTube

@@ -1,5 +1,4 @@
-{ host, ... }:
-let
+{host, ...}: let
   vars = import ../../../hosts/${host}/variables.nix;
   inherit
     (vars)
@@ -22,7 +21,7 @@ let
       "$modifier,C, Noctalia Control Center, exec, noctalia-shell ipc call controlCenter toggle"
       "$modifier CTRL,R, Noctalia Screen Recorder, exec, noctalia-shell ipc call screenRecorder toggle"
     ]
-    else [ ];
+    else [];
   # Rofi launcher bindings (only included when barChoice != "noctalia")
   rofiBind =
     if barChoice != "noctalia"
@@ -30,16 +29,15 @@ let
       "$modifier,D, Rofi Launcher, exec, rofi-launcher"
       "$modifier SHIFT,Return, Rofi Launcher, exec, rofi-launcher"
     ]
-    else [ ];
+    else [];
   # Rofi clipboard binding (only included when barChoice != "noctalia")
   rofiClipboardBind =
     if barChoice != "noctalia"
     then [
       "$modifier,V, Clipboard History, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
     ]
-    else [ ];
-in
-{
+    else [];
+in {
   wayland.windowManager.hyprland.settings = {
     bindd =
       noctaliaBind
@@ -52,20 +50,23 @@ in
         "$modifier,Return, Terminal, exec, ${terminal}"
         # ============= APPLICATION LAUNCHERS =============
         "$modifier,K, Keybinds Search Tool, exec, qs-keybinds"
+        "$modifier CTRL,C, Cheatsheets Viewer, exec, qs-cheatsheets"
         "$modifier SHIFT,K, Legacy Keybinds Menu, exec, list-keybinds"
         "$modifier SHIFT,D, Discord, exec, discord"
         "$modifier SHIFT,W, Web Search, exec, web-search"
         "$modifier ALT,W, Wallpaper Setter, exec, wallsetter"
         "$modifier SHIFT,N, Notification Reset, exec, swaync-client -rs"
-        "$modifier,b, Web Browser, exec, ${browser}"
-        "$modifier,Y, File Manager, exec, ghostty -e yazi"
+        "$modifier,B, Web Browser, exec, ${browser}"
+        "$modifier,Y, File Manager, exec, kitty -e yazi"
         "$modifier,S, Screenshot, exec, screenshootin"
         # ============= SCREENSHOTS =============
         "$modifier CTRL,S, Screenshot Output, exec, hyprshot -m output -o $HOME/Pictures/ScreenShots"
         "$modifier SHIFT,S, Screenshot Window, exec, hyprshot -m window -o $HOME/Pictures/ScreenShots"
         "$modifier ALT,S, Screenshot Region, exec, hyprshot -m region -o $HOME/Pictures/ScreenShots"
+        "$modifier,O, OBS Studio, exec, obs"
         "$modifier ALT,C, Color Picker, exec, hyprpicker -a"
-        "$modifier,e, Thunar, exec, thunar"
+        "$modifier shift,T, Dropdown Terminal, exec, pypr toggle term"
+        "$modifier,E, Thunar, exec, thunar"
         "$modifier ALT,M, Audio Control, exec, pavucontrol"
         # ============= WINDOW MANAGEMENT =============
         "$modifier,Q, Kill Active Window, killactive,"
