@@ -35,7 +35,7 @@ in
       "lp"
       "networkmanager"
       "scanner"
-      "wheel" #subdo access
+      "wheel" #sudo access
       "vboxusers" #Virtual Box
     ];
     shell = pkgs.zsh;
