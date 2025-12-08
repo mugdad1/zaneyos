@@ -1,5 +1,6 @@
-# Ghostty on ddubsOS — Summary & Cheatsheet
+English | [Español](./ghostty.cheatsheet.es.md)
 
+# Ghostty on ZaneyOS — Summary & Cheatsheet
 ## 🚀 Summary of modules/home/terminals/ghostty.nix
 
 - Program
@@ -8,7 +9,7 @@
   - clearDefaultKeybinds = true (all bindings are explicitly defined below)
 
 - Appearance
-  - Title: ddubsOS-GhosTTY
+  - Title: ZaneyOS-GhosTTY
   - TERM: xterm-256color
   - Theme: dark: catppuccin-mocha; light: catppuccin-mocha
   - Window theme: dark

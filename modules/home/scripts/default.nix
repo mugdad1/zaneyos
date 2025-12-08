@@ -20,6 +20,9 @@
       inherit username;
     })
     (import ./web-search.nix { inherit pkgs; })
+    # Cheatsheets viewer + parser
+    (import ./cheatsheets-parser.nix { inherit pkgs; })
+    (import ./qs-cheatsheets.nix { inherit pkgs; })
     (import ./zcli.nix {
       inherit pkgs profile;
       backupFiles = [

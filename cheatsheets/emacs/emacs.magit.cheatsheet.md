@@ -1,5 +1,6 @@
-# Doom Emacs Magit Cheatsheet
+English | [Español](./emacs.magit.cheatsheet.es.md)
 
+# Doom Emacs Magit Cheatsheet
 ## 🚀 **What is Magit?**
 
 Magit is an extremely powerful tool for managing your Git project

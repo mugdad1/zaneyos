@@ -1,5 +1,6 @@
-# Top 10 Things New Doom Emacs Users Should Know
+English | [Español](./emacs.getting-started.top10.es.md)
 
+# Top 10 Things New Doom Emacs Users Should Know
 ## 🚀 **Getting Started with Doom Emacs**
 
 Welcome to Doom Emacs! Here are the 10 most essential things every new user
@@ -42,7 +43,7 @@ will show you the options!
 **Quick workflow:**
 
 1. Open your project directory in terminal
-2. Start Emacs: `emacs` or `doom run`
+2. Start Emacs: `emacs` (or `emacsclient -c` for GUI, `et` for TTY)
 3. Use `SPC .` to browse files or `SPC SPC` to quickly find files
 
 ---

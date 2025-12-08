@@ -1,5 +1,6 @@
-# Hyprland Keybindings — ddubsOS
+English | [Español](./hyprland.binds.cheatsheet.es.md)
 
+# Hyprland Keybindings — ZaneyOS
 ## 🗝️ Conventions
 - SUPERKEY = Mod key (Hyprland `$modifier`)
 - SHIFT, CTRL, ALT used as shown
@@ -7,83 +8,98 @@
 
 ---
 
-## 🚀 Applications
-- SUPERKEY+Return — Launch default terminal (${terminal})
-- SUPERKEY+SHIFT+Return — Launch foot (floating)
-- SUPERKEY+ALT+Return — Launch WezTerm
-- SUPERKEY+CTRL+Return — Launch Ghostty
-- SUPERKEY+W — Launch browser (${browser})
-- SUPERKEY+Y — Kitty running Yazi (file manager)
-- SUPERKEY+T — Thunar (also another mapping present: "exec, exec, thunar")
-- SUPERKEY+M — Pavucontrol (audio)
+## 🚀 Launchers & Overview
+- SUPERKEY+CTRL+D — Toggle Dock
+- ALT+Space — Workspace Overview
+- SUPERKEY+A — App Overview
+- SUPERKEY+R — Rofi Legacy Menu
+- SUPERKEY+D — Rofi Menu
+
+## 🖥️ Terminals
+- SUPERKEY+Return — Terminal
+- SUPERKEY+SHIFT+Return — Foot Terminal (Floating)
+- SUPERKEY+ALT+Return — WezTerm
+- SUPERKEY+CTRL+Return — Ghostty
+- SUPERKEY+SHIFT+T — Scratchpad Terminal
+
+## ✍️ Editors & IDEs
+- ALT+E — Emacs Floating
+- SUPERKEY+E — Emacs
 - SUPERKEY+G — VS Code
-- SUPERKEY+O — OBS Studio
-- SUPERKEY+E — Emoji picker (emopicker9000)
-- SUPERKEY+V — Clipboard menu (cliphist via rofi)
-- SUPERKEY+D — Rofi menu
-- SUPERKEY+SHIFT+D — Dock
-- SUPERKEY+CTRL+D — Sherlock (alt menu)
-- SUPERKEY+SHIFT+W — Web search
-- SUPERKEY+ALT+W — Warp terminal (commented alternative: wallsetter)
-- SUPERKEY+CTRL+W — Waypaper
-- SUPERKEY+N — Note from clipboard
-- SUPERKEY+SHIFT+N — SwayNC reset
+
+## 🌐 Web & Communication
+- SUPERKEY+W — Web Browser
 - SUPERKEY+ALT+D — Discord Canary
-- SUPERKEY+C — Hyprpicker (color picker)
-- SHIFT+ALT+S — Hyprshot region (non-SUPER shortcut)
 
-## 🧭 Hyprland UI/Plugins
-- SUPERKEY+TAB — Hyprspace Overview toggle (all)
-- SUPERKEY+SHIFT+TAB — Hyprspace Overview close (all)
-- ALT+Space — Hyprexpo toggle
-- SUPERKEY+A — AGS Overview toggle
+## 📁 File Management
+- SUPERKEY+T — Thunar
+- SUPERKEY+Y — Yazi
 
-## 📸 Screenshots
-- SUPERKEY+S — screenshootin
-- SUPERKEY+SHIFT+S — screenshootin-satty
-- SUPERKEY+ALT+S — hyprpanel toggleWindow settings-dialog
+## 🛠️ System Utilities
+- SUPERKEY+V — Clipboard History
+- SUPERKEY+N — Create Note From Clipboard
+- SUPERKEY+C — Color Picker
+- SUPERKEY+S — Screenshot
+- SUPERKEY+SHIFT+S — Screenshot Satty
+- ALT+SHIFT+S — Screenshot Region
+- SUPERKEY+O — OBS Studio
+- SUPERKEY+M — Audio Control
+- SUPERKEY+SHIFT+E — Emoji Picker
+
+## ⚙️ Settings & System
+- SUPERKEY+ALT+S — Settings Dialog
+- SUPERKEY+SHIFT+N — Notifications Reset
+- SUPERKEY+SHIFT+P — Power Menu
+- SUPERKEY+SHIFT+W — Apply Wallpapers
+- SUPERKEY+ALT+W — Warp Build
+- ALT+SHIFT+Q — Logout Menu
+
+## 📖 Docs & Help
+- SUPERKEY+SHIFT+K — Keybinds Help
+- SUPERKEY+SHIFT+C — Cheatsheets
+- SUPERKEY+SHIFT+D — Docs
 
 ## 🪟 Window Management
-- SUPERKEY+Q — Kill active window
-- SUPERKEY+P — Pseudo tile
-- SUPERKEY+SHIFT+I — Toggle split
-- SUPERKEY+F — Fullscreen
-- SUPERKEY+SHIFT+F — Toggle floating
-- SUPERKEY+ALT+F — Workspace option: allfloat
-- SUPERKEY+SHIFT+C — Exit Hyprland
-- SUPERKEY+SPACE — Toggle floating
-- SUPERKEY+SHIFT+SPACE — Workspace option: allfloat
-- SUPERKEY+SHIFT+M — swap_layout
+- SUPERKEY+SHIFT+G — Smart Gaps Toggle
+- SUPERKEY+Q — Kill Active Window
+- SUPERKEY+F — Toggle Fullscreen
+- SUPERKEY+ALT+F — Maximize (keep bars)
+- SUPERKEY+SHIFT+F — Toggle Floating
+- SUPERKEY+Space — Toggle Floating
+- SUPERKEY+SHIFT+Space — Workspace All Float
+- SUPERKEY+P — Pseudo Tile
+- SUPERKEY+SHIFT+M — Swap Layout
+- SUPERKEY+SHIFT+I — Toggle Split
 
 ### Move Window
-- SUPERKEY+SHIFT+Left/Right/Up/Down — Move window L/R/U/D
-- SUPERKEY+SHIFT+H/J/K/L — Move window L/D/U/R
+- SUPERKEY+SHIFT+Left/Right/Up/Down — Move Window Left/Right/Up/Down
+- SUPERKEY+SHIFT+H/J/K/L — Move Window Left/Right/Up/Down
 
 ### Swap Window
-- SUPERKEY+ALT+Left/Right/Up/Down — Swap window L/R/U/D
-- SUPERKEY+ALT+[, . , - , ,] — Swap window L/R/U/D (keycodes 43,46,45,44)
+- SUPERKEY+ALT+Left/Right/Up/Down — Swap Window Left/Right/Up/Down
+- SUPERKEY+ALT+43/46/45/44 — Swap Window Left/Right/Up/Down
 
 ### Focus Movement
-- SUPERKEY+Left/Right/Up/Down — Focus L/R/U/D
-- SUPERKEY+H/J/K/L — Focus L/D/U/R
+- SUPERKEY+Left/Right/Up/Down — Focus Left/Right/Up/Down
+- SUPERKEY+H/J/K/L — Focus Left/Right/Up/Down
 
-### Workspace Navigation
-- SUPERKEY+1..9,0 — Go to workspace 1..10
-- SUPERKEY+SHIFT+1..9,0 — Move window to workspace 1..10
-- SUPERKEY+CTRL+Right/Left — Next/Previous workspace (relative)
-- SUPERKEY+Mouse Wheel Down/Up — Workspace e+1 / e-1
+### Window Cycling
+- ALT+Tab — Cycle Next Window
+- ALT+Tab — Bring Active To Top
 
-### Alt-Tab
-- ALT+Tab — Cycle next
-- ALT+Tab — Bring active to top (runs twice to ensure raise)
+## 🗂️ Workspaces
+- SUPERKEY+1..9,0 — Workspace 1..10
+- SUPERKEY+SHIFT+1..9,0 — Move To Workspace 1..10
+- SUPERKEY+CTRL+Right/Left — Next/Previous Workspace
+- SUPERKEY+Mouse Wheel Down/Up — Next/Previous Workspace
 
 ## 🔊 Media & Brightness
-- XF86AudioRaiseVolume — wpctl set-volume +5%
-- XF86AudioLowerVolume — wpctl set-volume -5%
-- XF86AudioMute — toggle sink mute
-- XF86AudioPlay/Pause — playerctl play-pause
-- XF86AudioNext/Prev — playerctl next/previous
-- XF86MonBrightnessDown/Up — brightnessctl -5% / +5%
+- XF86AudioRaiseVolume — Volume Up
+- XF86AudioLowerVolume — Volume Down
+- XF86AudioMute — Mute Toggle
+- XF86AudioPlay/Pause — Play/Pause
+- XF86AudioNext/Prev — Next/Previous Track
+- XF86MonBrightnessDown/Up — Brightness Down/Up
 
 ## 🖱️ Mouse Bindings
 - SUPERKEY + Left Mouse — Move window

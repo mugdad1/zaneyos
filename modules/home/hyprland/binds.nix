@@ -12,13 +12,13 @@ let
     if barChoice == "noctalia"
     then [
       "$modifier,A, Noctalia Launcher, exec, noctalia-shell ipc call launcher toggle"
-      "$modifier,M, Noctalia Notifications, exec, noctalia-shell ipc call notifications toggleHistory"
+      "$modifier,M, Noctalia Notifications, exec, noctalia-shell ipc call notifications toggle"
       "$modifier,V, Noctalia Clipboard, exec, noctalia-shell ipc call launcher clipboard"
       "$modifier ALT,P, Noctalia Settings, exec, noctalia-shell ipc call settings toggle"
       "$modifier SHIFT,comma, Noctalia Settings, exec, noctalia-shell ipc call settings toggle"
       "$modifier ALT,L, Noctalia Lock Screen, exec, noctalia-shell ipc call sessionMenu lockAndSuspend"
       "$modifier SHIFT,Y, Noctalia Wallpaper, exec, noctalia-shell ipc call wallpaper toggle"
-      "$modifier,X, Noctalia Power Menu, exec,noctalia-shell ipc call sessionMenu toggle"
+      "$modifier,X, Noctalia Power Menu, exec, noctalia-shell ipc call sessionMenu toggle"
       "$modifier,C, Noctalia Control Center, exec, noctalia-shell ipc call controlCenter toggle"
       "$modifier CTRL,R, Noctalia Screen Recorder, exec, noctalia-shell ipc call screenRecorder toggle"
     ]
@@ -31,40 +31,48 @@ let
       "$modifier SHIFT,Return, Rofi Launcher, exec, rofi-launcher"
     ]
     else [ ];
+  # Rofi clipboard binding (only included when barChoice != "noctalia")
+  rofiClipboardBind =
+    if barChoice != "noctalia"
+    then [
+      "$modifier,V, Clipboard History, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+    ]
+    else [ ];
 in
 {
   wayland.windowManager.hyprland.settings = {
     bindd =
       noctaliaBind
       ++ rofiBind
+      ++ rofiClipboardBind
       ++ [
+        # ============= WORKSPACE OVERVIEW =============
         "$modifier, TAB, QS Overview, exec, qs ipc -c overview call overview toggle"
-
         # ============= TERMINALS =============
         "$modifier,Return, Terminal, exec, ${terminal}"
         # ============= APPLICATION LAUNCHERS =============
         "$modifier,K, Keybinds Search Tool, exec, qs-keybinds"
         "$modifier SHIFT,K, Legacy Keybinds Menu, exec, list-keybinds"
-        "$modifier SHIFT,K, Legacy Keybinds Menu, exec, list-keybinds"
         "$modifier SHIFT,D, Discord, exec, discord"
         "$modifier SHIFT,W, Web Search, exec, web-search"
         "$modifier ALT,W, Wallpaper Setter, exec, wallsetter"
         "$modifier SHIFT,N, Notification Reset, exec, swaync-client -rs"
-        "$modifier,B, Web Browser, exec, ${browser}"
-        "$modifier,Y, File Manager, exec, kitty -e yazi"
+        "$modifier,b, Web Browser, exec, ${browser}"
+        "$modifier,Y, File Manager, exec, ghostty -e yazi"
         "$modifier,S, Screenshot, exec, screenshootin"
         # ============= SCREENSHOTS =============
         "$modifier CTRL,S, Screenshot Output, exec, hyprshot -m output -o $HOME/Pictures/ScreenShots"
         "$modifier SHIFT,S, Screenshot Window, exec, hyprshot -m window -o $HOME/Pictures/ScreenShots"
         "$modifier ALT,S, Screenshot Region, exec, hyprshot -m region -o $HOME/Pictures/ScreenShots"
+        "$modifier,O, OBS Studio, exec, obs"
         "$modifier ALT,C, Color Picker, exec, hyprpicker -a"
+        "$modifier,G, GIMP, exec, gimp"
         "$modifier shift,T, Dropdown Terminal, exec, pypr toggle term"
-        "$modifier,E, Thunar, exec, thunar"
+        "$modifier,T, Thunar, exec, thunar"
         "$modifier ALT,M, Audio Control, exec, pavucontrol"
         # ============= WINDOW MANAGEMENT =============
         "$modifier,Q, Kill Active Window, killactive,"
         "$modifier,P, Pseudo Tile, pseudo,"
-        #"$modifier,V, Clipboard History, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
         "$modifier SHIFT,I, Toggle Split, togglesplit,"
         "$modifier,F, Maximize, fullscreen,"
         "$modifier SHIFT,F, Toggle Floating, togglefloating,"

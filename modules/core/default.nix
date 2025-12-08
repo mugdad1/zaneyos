@@ -1,6 +1,7 @@
-{ inputs
-, host
-, ...
+{
+  inputs,
+  host,
+  ...
 }:
 let
   # Import the host-specific variables.nix
@@ -14,7 +15,6 @@ in
     ./hardware.nix
     ./network.nix
     ./nfs.nix
-    ./cachix.nix
     ./nh.nix
     ./quickshell.nix
     ./packages.nix
@@ -31,6 +31,7 @@ in
     ./user.nix
     ./virtualisation.nix
     ./xserver.nix
+    ./cachix.nix
     inputs.stylix.nixosModules.stylix
   ];
 }

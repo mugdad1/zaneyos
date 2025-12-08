@@ -1,5 +1,6 @@
-# Doom Emacs Code Completion & Lookup Cheatsheet
+English | [Español](./emacs.code-completion.cheatsheet.es.md)
 
+# Doom Emacs Code Completion & Lookup Cheatsheet
 ## 🚀 **What You Have (Like nvim-cmp + blink.cmp)**
 
 If your Doom config includes:

@@ -126,6 +126,7 @@ A continuación los atajos de Hyprland, en formato de referencia rápida. La col
 ### Lanzamiento de aplicaciones
 
 - `$modifier + Return` → Lanzar `terminal`
+- `$modifier + Tab` → Alternar `Quickshell Overview` (visor de espacios con vistas en vivo)
 - `$modifier + K` → Listar atajos
 - `$modifier + Shift + W` → Abrir `web-search`
 - `$modifier + Alt + W` → Abrir `wallsetter`

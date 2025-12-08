@@ -1,8 +1,9 @@
-{ host
-, config
-, pkgs
-, lib
-, ...
+{
+  host,
+  config,
+  pkgs,
+  lib,
+  ...
 }:
 let
   vars = import ../../../hosts/${host}/variables.nix;
@@ -10,7 +11,8 @@ let
   keyboardLayout = vars.keyboardLayout or "us";
   keyboardVariant = vars.keyboardVariant or "";
   stylixImage = vars.stylixImage or null;
-   # Treat only known US-based variants as implying layout = "us".
+
+  # Treat only known US-based variants as implying layout = "us".
   usVariants = [ "dvorak" "colemak" "workman" "intl" "us-intl" "altgr-intl" ];
   normalizeUSVariant = v: if v == "us-intl" then "intl" else v;
 
@@ -27,8 +29,7 @@ let
 
   hyprKbLayout = layoutFromVariant;
   hyprKbVariant = variantFinal;
-in  
-
+in
 {
   home.packages = with pkgs; [
     swww

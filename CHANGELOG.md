@@ -5,10 +5,51 @@
 
 ---
 
-# 🚀 **Current Release - ZaneyOS v2.5.1**
+# 🚀 **Current Release - ZaneyOS v2.5.4**
 
-#### 📅 **Updated: November 28th, 2025**
+#### 📅 **Updated: December 3rd, 2025**
 
+- Added:
+  - Cheatsheets from ddubsOS
+    - Covers, terminals, emacs, etc
+    - In English and Spanish
+  - Zen browser
+    - Via Flake, for current builds
+  - Nano customized config
+- Pinned: `nixvim` to v25.11 branch
+- Added: Support for `kb_variants` at install time.
+  - Keyboards, like `dvorak`, `coleman,` or `euro`
+  - Configures, console, SDDM and Hyprland
+- Fixed: TUI greetd service name changed to `services.greetd`
+- Updated:
+  - `cachix settings updated for better speed
+  - Moved to its own `cacheix.nix` file
+
+#### 📅 **Updated: December 1st, 2025**
+
+- Added: System keybinds search tool from ddubsOS
+  - Shows bindings for:
+  - Hyprland, kitty, wezterm, ghostty, emacs and yazi
+  - SUPER + K to invoke
+  - SUPER + SHIFT + K for legacy keybind rofi menu
+- Fixed: Added power profiles daemon for noctalia
+- Fixed: `gpu-screen-recorder` not installed
+  - Thanks to `@mugdad11` for finding them
+- Fixed: Both rofi and noctalia clipboard
+  - Both were active on `SUPER + V`
+  - Now checks for waybar or noctalia shell
+  - Thanks to `@mugdad11` for finding it
+- Fixed: Laptop battery not showing in noctalia shell
+  - Thanks again `@mugdad11` for finding issue
+  - And doing the Merge Request to fix it
+  - `upower` package not installed and `upower` service not enabled
+
+- NEW: Added `quickshell-overview` integration
+  - Workspace overview with live window previews
+  - Toggled via `SUPER + TAB` keybind
+  - Drag-and-drop workspace navigation
+  - Uses IPC for seamless integration with Hyprland
+  - QML code managed via Home Manager activation script
 - FIXED: Username wasn't reliably being set in `flake.nix`
 - Set ZaneyOS to NixOS v25.11 stable branch
 - Moved to `nixvim` for NeoVIM configuration
@@ -35,7 +76,7 @@
   - Updated Keybindings
   - Moved screenshots into a markdown suummary to reduce clutter
 - Added script to fix `doom iedit` update error
-- Moved some modules/home/*.nix files to their own subdir
+- Moved some modules/home/\*.nix files to their own subdir
   - Terminals
     - Alacritty
     - ghostty
@@ -59,6 +100,8 @@
     - gh
     - lazygit
 
+    Contributors: `@mugdad11`
+
 #### 📅 **Updated: September 18th, 2025**
 
 - 🧪 EXPERIMENTAL: AMD+NVIDIA hybrid support (amd-hybrid)
@@ -80,7 +123,7 @@
 - 🛡️ Installer: Added defensive hostname validation and sanitization
   - Prevents invalid hostnames (e.g., with dots) from causing Nix evaluation
     errors
-  - Auto-sanitizes to a compliant hostname (letters/digits with '-' or '_', 1–63
+  - Auto-sanitizes to a compliant hostname (letters/digits with '-' or '\_', 1–63
     chars) and prompts for confirmation
   - Explicitly rejects 'default' to avoid template overwrites
 - 🧩 Nix: Added assertion in modules/core/network.nix for clearer errors if an
@@ -294,6 +337,7 @@
   - 📊 Added info on `zcli` utility
   - ⬆️ Updated `zcli` now uses `nh` util to select # of generations to keep
   - ➕ Added `zcli` CLI util. runs rebuild, update, garbage collection and diags
+
   ```text
   ❯ zcli
 

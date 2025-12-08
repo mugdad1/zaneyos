@@ -143,6 +143,7 @@ when `barChoice = "noctalia"`).
 ### Application Launching
 
 - `$modifier + Return` → Launch `terminal`
+- `$modifier + Tab` → Toggle `Quickshell Overview` (workspace overview with live previews)
 - `$modifier + K` → List keybinds
 - `$modifier + Shift + W` → Open `web-search`
 - `$modifier + Alt + W` → Open `wallsetter`
@@ -397,4 +398,3 @@ Thank you for all your assistance
 - Jerry Starke https://github.com/JerrySM64
 
 ## Hope you enjoy!
-# zaneyos

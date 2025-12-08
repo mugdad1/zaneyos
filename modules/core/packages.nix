@@ -21,6 +21,7 @@ in
       enable = true;
       defaultEditor = true;
     };
+    firefox.enable = false; # Firefox is not installed by default
     hyprland = {
       enable = true; # set this so desktop file is created
       withUWSM = false;
@@ -57,7 +58,6 @@ in
       safeeyes
       onlyoffice-desktopeditors
       trilium-desktop
-      gpu-screen-recorder
       power-profiles-daemon
       appimage-run # Needed For AppImage Support
       brightnessctl # For Screen Brightness Control
@@ -71,7 +71,8 @@ in
       ffmpeg # Terminal Video / Audio Editing
       file-roller # Archive Manager
       gedit # Simple Graphical Text Editor
-      #gimp # Great Photo Editor
+      gpu-screen-recorder # needed for nnoctalia-shell
+      power-profiles-daemon # needed for noctalia-shell power cycle
       mesa-demos # needed for inxi diag util
       tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
       htop # Simple Terminal Based System Monitor
@@ -86,17 +87,21 @@ in
       mpv # Incredible Video Player
       ncdu # Disk Usage Analyzer With Ncurses Interface
       nixfmt-rfc-style # Nix Formatter
+      nwg-displays # configure monitor configs via GUI
       onefetch # provides zsaneyos build info on current system
+      pandoc # format MD to HTML for cheatsheet parser
       pavucontrol # For Editing Audio Levels & Devices
       pciutils # Collection Of Tools For Inspecting PCI Devices
       picard # For Changing Music Metadata & Getting Cover Art
       pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
       playerctl # Allows Changing Media Volume Through Scripts
+      rhythmbox # audio player
       ripgrep # Improved Grep
       socat # Needed For Screenshots
       unrar # Tool For Handling .rar Files
       unzip # Tool For Handling .zip Files
       usbutils # Good Tools For USB Devices
+      upower # noctalia shell battery
       uwsm # Universal Wayland Session Manager (optional must be enabled)
       v4l-utils # Used For Things Like OBS Virtual Camera
       waypaper # Change wallpaper

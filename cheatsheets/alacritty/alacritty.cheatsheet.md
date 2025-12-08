@@ -1,5 +1,6 @@
-# Alacritty on ddubsOS — Summary & Cheatsheet
+English | [Español](./alacritty.cheatsheet.es.md)
 
+# Alacritty on ZaneyOS — Summary & Cheatsheet
 ## 🚀 Summary of modules/home/terminals/alacritty.nix
 
 - Program

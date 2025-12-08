@@ -1,13 +1,13 @@
 { profile, ... }: {
   # Services to start
   services = {
-    power-profiles-daemon.enable = true;
-    upower.enable = true;
     resolved.enable = true;
     tailscale.enable = true;
+    upower.enable = true; # noctalia shell battery
     libinput.enable = true; # Input Handling
     fstrim.enable = true; # SSD Optimizer
     gvfs.enable = true; # For Mounting USB & More
+    power-profiles-daemon.enable = true;
     openssh = {
       enable = true; # Enable SSH
       settings = {

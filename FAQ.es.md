@@ -1,8 +1,8 @@
 [English](FAQ.md) | [Español](FAQ.es.md)
 
-# 💬 Preguntas frecuentes de ZaneyOS para v2.5.1
+# 💬 Preguntas frecuentes de ZaneyOS para v2.5.5
 
-- **Fecha:** 30 de noviembre de 2025
+- **Fecha:** 3 de deciembre de 2025
 
 **⌨ ¿Dónde puedo ver los atajos de teclado de Hyprland?**
 
@@ -147,6 +147,8 @@ fácil referencia.
 ## Lanzamiento de Aplicaciones
 
 - `$modifier + Return` → Lanzar `Terminal`
+- `$modifier + Tab` → Alternar `Quickshell Overview` (visor de espacios con
+  vistas en vivo)
 - `$modifier + K` → Lista atajos
 - `$modifier + D` → Lanzar `launcher`
 - `$modifier + Shift + Return` → Lanzar `launcher`

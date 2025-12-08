@@ -1,5 +1,6 @@
-# Kitty on ddubsOS — Summary & Cheatsheet
+English | [Español](./kitty.cheatsheet.es.md)
 
+# Kitty on ZaneyOS — Summary & Cheatsheet
 ## 🚀 Summary of modules/home/terminals/kitty.nix
 
 - Program

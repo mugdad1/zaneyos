@@ -38,7 +38,7 @@ in
       "wheel" #subdo access
       "vboxusers" #Virtual Box
     ];
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
   };
   nix.settings.allowed-users = [ "${username}" ];

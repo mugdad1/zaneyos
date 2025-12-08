@@ -1,8 +1,8 @@
 [English](FAQ.md) | [Español](FAQ.es.md)
 
-# 💬 ZaneyOS FAQ for v2.5.1
+# 💬 ZaneyOS FAQ for v2.5.5
 
-- **Date:** 30-November-2025
+- **Date:** 3-Decemnber-2025
 
 **⌨ Where can I see the Hyprland keybindings?**
 
@@ -143,6 +143,8 @@ Below are the keybindings for Hyprland, formatted for easy reference.
 ## Application Launching
 
 - `$modifier + Return` → Launch `Terminal`
+- `$modifier + Tab` → Toggle `Quickshell Overview` (workspace overview with live
+  previews)
 - `$modifier + K` → List keybinds
 - `$modifier + D` → Application Launcher
 - `$modifier + Shift + Return` → Application Launcher

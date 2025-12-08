@@ -1,5 +1,6 @@
-# Doom Emacs File Explorer Cheatsheet
+English | [Español](./emacs.file-explorer.cheatsheet.es.md)
 
+# Doom Emacs File Explorer Cheatsheet
 ## 🗂️ **What is Dired?**
 
 Dired (Directory Editor) is Emacs' built-in file manager that allows you to navigate, manage, and manipulate files and directories efficiently.

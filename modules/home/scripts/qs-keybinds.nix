@@ -1,4 +1,4 @@
-{ pkgs }:
+{pkgs}:
 pkgs.writeShellScriptBin "qs-keybinds" ''
     #!/usr/bin/env bash
     set -euo pipefail
@@ -859,4 +859,3 @@ pkgs.writeShellScriptBin "qs-keybinds" ''
       printf "Copied to clipboard: %s\\n" "$keybind"
     fi
 ''
-

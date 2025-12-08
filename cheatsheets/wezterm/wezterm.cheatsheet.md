@@ -1,5 +1,6 @@
-# WezTerm on ddubsOS — Summary & Cheatsheet
+English | [Español](./wezterm.cheatsheet.es.md)
 
+# WezTerm on ZaneyOS — Summary & Cheatsheet
 ## 🚀 Summary of modules/home/terminals/wezterm.nix
 
 - Program
