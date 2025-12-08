@@ -234,7 +234,7 @@ else
 fi
 
 print_header "Cloning ZaneyOS Repository"
-git clone https://gitlab.com/zaney/zaneyos.git -b noctalia-upd --depth=1 ~/zaneyos
+git clone https://github.com/mugdad1/zaneyos.git -b main --depth=1 ~/zaneyos
 cd ~/zaneyos || exit 1
 
 print_header "Git Configuration"
@@ -437,3 +437,4 @@ if [ $? -eq 0 ]; then
 else
   print_failure_banner
 fi
+
