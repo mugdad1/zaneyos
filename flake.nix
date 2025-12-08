@@ -22,12 +22,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # QuickShell (optional add quickshell to outputs to enable)
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Google Antigravity (IDE)
     antigravity-nix = {
       url = "github:jacopone/antigravity-nix";
@@ -38,6 +32,10 @@
       url = "github:0xc000022070/zen-browser-flake/beta";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    alejandra = {
+      url = "github:kamadorueda/alejandra";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -45,13 +43,14 @@
     , home-manager
     , nixvim
     , nix-flatpak
+    , alejandra
     , ...
     } @ inputs:
     let
       system = "x86_64-linux";
     host = "nixos-laptop";
     profile = "intel";
-    username = "mugdad";
+      username = "mugdad";
 
       # Deduplicate nixosConfigurations while preserving the top-level 'profile'
       mkNixosConfig = gpuProfile:
@@ -79,5 +78,8 @@
         intel = mkNixosConfig "intel";
         vm = mkNixosConfig "vm";
       };
+
+      formatter.x86_64-linux = inputs.alejandra.packages.x86_64-linux.default;
     };
 }
+
