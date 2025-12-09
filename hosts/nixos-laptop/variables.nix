@@ -14,7 +14,7 @@
   alacrittyEnable = false;
   weztermEnable = false;
   ghosttyEnable = true;
-  vscodeEnable = false;
+  vscodeEnable = true;
   antigravityEnable = false; # Google port of vscodium
   # Note: This is evil-helix with VIM keybindings by default
   helixEnable = false;

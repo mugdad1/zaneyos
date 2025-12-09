@@ -53,7 +53,6 @@ in {
       freetube
       wlsunset
       tailscale
-      vscodium
       safeeyes
       onlyoffice-desktopeditors
       trilium-desktop
