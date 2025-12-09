@@ -57,6 +57,7 @@ in {
       onlyoffice-desktopeditors
       trilium-desktop
       power-profiles-daemon
+      logisim-evolution
       alejandra # nix formatter
       appimage-run # Needed For AppImage Support
       brightnessctl # For Screen Brightness Control
