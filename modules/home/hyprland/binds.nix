@@ -11,7 +11,7 @@
     if barChoice == "noctalia"
     then [
       "$modifier,A, Noctalia Launcher, exec, noctalia-shell ipc call launcher toggle"
-      "$modifier,M, Noctalia Notifications, exec, noctalia-shell ipc call notifications toggle"
+      "$modifier,M, Noctalia Notifications, exec, noctalia-shell ipc call notifications toggleHistory"
       "$modifier,V, Noctalia Clipboard, exec, noctalia-shell ipc call launcher clipboard"
       "$modifier ALT,P, Noctalia Settings, exec, noctalia-shell ipc call settings toggle"
       "$modifier SHIFT,comma, Noctalia Settings, exec, noctalia-shell ipc call settings toggle"
