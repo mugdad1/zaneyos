@@ -1,7 +1,7 @@
 {pkgs, ...}: let
   # A recent issue 7/7/2025 w/ghostty causes it to hang or respond slowly
   # This is a workaround until a fix is released
-  myGhostty = pkgs.ghostty.overrideAttrs (_: {
+  myGhostty = pkgs.ghostty-bin.overrideAttrs (_: {
     preBuild = ''
       shopt -s globstar
       sed -i 's/^const xev = @import("xev");$/const xev = @import("xev").Epoll;/' **/*.zig
