@@ -556,11 +556,9 @@ in {
           };
           modules = [
             "custom/menu"
-            "custom/light_dark"
             "custom/file_manager"
             "custom/tty"
             "custom/browser"
-            "custom/settings"
           ];
         };
 
@@ -615,34 +613,9 @@ in {
         # ---------- Custom modules (from ModulesCustom) ----------
         "custom/weather" = {
           return-type = "json";
-          exec = "sh -lc 'WEATHER_ICON_STYLE=emoji WEATHER_TOOLTIP_MARKUP=1 ~/.config/waybar/scripts/Weather.py'";
+          exec = "sh -lc 'WEATHER_ICON_STYLE=emoji WEATHER_TOOLTIP_MARKUP=1 ~/.local/bin/weather'";
           interval = 600;
           tooltip = true;
-        };
-
-        "custom/file_manager" = {
-          format = " ";
-          "on-click" = "$HOME/.config/hypr/scripts/WaybarScripts.sh --files";
-          tooltip = true;
-          "tooltip-format" = "File Manager";
-        };
-        "custom/tty" = {
-          format = " ";
-          "on-click" = "$HOME/.config/hypr/scripts/WaybarScripts.sh --term";
-          tooltip = true;
-          "tooltip-format" = "Launch Terminal";
-        };
-        "custom/browser" = {
-          format = " ";
-          "on-click" = "xdg-open https://";
-          tooltip = true;
-          "tooltip-format" = "Launch Browser";
-        };
-        "custom/settings" = {
-          format = " ";
-          "on-click" = "$HOME/.config/hypr/scripts/Kool_Quick_Settings.sh";
-          tooltip = true;
-          "tooltip-format" = "Launch KooL Hyprland Settings Menu";
         };
         "custom/qs_wallpapers_apply" = {
           # Image wallpaper apply (qs-wallpapers-apply)
@@ -658,27 +631,6 @@ in {
           tooltip = true;
           "tooltip-format" = "Set video wallpaper";
         };
-        "custom/cycle_wall" = {
-          format = " ";
-          "on-click" = "$HOME/.config/hypr/UserScripts/WallpaperSelect.sh";
-          "on-click-right" = "$HOME/.config/hypr/UserScripts/WallpaperRandom.sh";
-          "on-click-middle" = "$HOME/.config/hypr/scripts/WaybarStyles.sh";
-          tooltip = true;
-          "tooltip-format" = "Left Click: Wallpaper Menu\nMiddle Click: Random wallpaper\nRight Click: Waybar Styles Menu";
-        };
-        "custom/hint" = {
-          format = "󰺁 HINT!";
-          "on-click" = "$HOME/.config/hypr/scripts/KeyHints.sh";
-          "on-click-right" = "$HOME/.config/hypr/scripts/KeyBinds.sh";
-          tooltip = true;
-          "tooltip-format" = "Left Click: Quick Tips\nRight Click: Keybinds";
-        };
-        "custom/dot_update" = {
-          format = " 󰁈 ";
-          "on-click" = "$HOME/.config/hypr/scripts/KooLsDotsUpdate.sh";
-          tooltip = true;
-          "tooltip-format" = "Check KooL Dots update\nIf available";
-        };
         "custom/hypridle" = {
           format = "󱫗 ";
           "return-type" = "json";
@@ -689,28 +641,11 @@ in {
           "on-click" = "$HOME/.config/hypr/scripts/Hypridle.sh toggle";
           "on-click-right" = "hyprlock";
         };
-        "custom/light_dark" = {
-          format = "󰔎 ";
-          "on-click" = "$HOME/.config/hypr/scripts/DarkLight.sh";
-          "on-click-right" = "$HOME/.config/hypr/scripts/WaybarStyles.sh";
-          "on-click-middle" = "$HOME/.config/hypr/UserScripts/WallpaperSelect.sh";
-          tooltip = true;
-          "tooltip-format" = "Left Click: Switch Dark-Light Themes\nMiddle Click: Wallpaper Menu\nRight Click: Waybar Styles Menu";
-        };
         "custom/lock" = {
           format = "󰌾";
           "on-click" = "$HOME/.config/hypr/scripts/LockScreen.sh";
           tooltip = true;
           "tooltip-format" = "󰷛 Screen Lock";
-        };
-        "custom/menu" = {
-          format = "  ";
-          # "on-click" = "pkill rofi || rofi -show drun -modi run,drun,filebrowser,window";
-          "on-click" = "launch-nwg-menu";
-          "on-click-middle" = "$HOME/.config/hypr/UserScripts/WallpaperSelect.sh";
-          "on-click-right" = "$HOME/.config/hypr/scripts/WaybarLayout.sh";
-          tooltip = true;
-          "tooltip-format" = "Left Click: Rofi Menu\nMiddle Click: Wallpaper Menu\nRight Click: Waybar Layout Menu";
         };
         "custom/startmenu" = {
           tooltip = true;

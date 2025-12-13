@@ -42,35 +42,25 @@ in {
   environment.systemPackages = with pkgs;
     noctaliaPkgs
     ++ [
-      obs-studio-plugins.obs-gstreamer
-      obs-studio-plugins.wlrobs
-      jellyfin-mpv-shim
-      gnome-disk-utility
-      fish
-      gearlever
-      kdePackages.konsole
-      firefox-bin
-      upower
-      wlsunset
-      tailscale
-      safeeyes
-      onlyoffice-desktopeditors
-      trilium-desktop
-      power-profiles-daemon
-      logisim-evolution
       alejandra # nix formatter
+      amfora # Fancy Terminal Browser For Gemini Protocol
       appimage-run # Needed For AppImage Support
+      brave # Brave Browser
       brightnessctl # For Screen Brightness Control
       cliphist # Clipboard manager using rofi menu
       cmatrix # Matrix Movie Effect In Terminal
       cowsay # Great Fun Terminal Program
       discord # Stable client
+      discord-canary # beta  client
+      docker-compose # Allows Controlling Docker From A Single File
       duf # Utility For Viewing Disk Usage In Terminal
       dysk # Disk space util nice formattting
       eza # Beautiful ls Replacement
       ffmpeg # Terminal Video / Audio Editing
       file-roller # Archive Manager
       gedit # Simple Graphical Text Editor
+      gemini-cli # CLI AI client ONLY (optional)
+      gimp # Great Photo Editor
       gpu-screen-recorder # needed for nnoctalia-shell
       power-profiles-daemon # needed for noctalia-shell power cycle
       mesa-demos # needed for inxi diag util
@@ -88,6 +78,9 @@ in {
       ncdu # Disk Usage Analyzer With Ncurses Interface
       nixfmt-rfc-style # Nix Formatter
       nwg-displays # configure monitor configs via GUI
+      nwg-drawer # Application launcher for wayland
+      nwg-dock-hyprland # Dock for hyprland
+      nwg-menu # App menu for waybar
       onefetch # provides zsaneyos build info on current system
       pandoc # format MD to HTML for cheatsheet parser
       pavucontrol # For Editing Audio Levels & Devices
@@ -95,6 +88,7 @@ in {
       picard # For Changing Music Metadata & Getting Cover Art
       pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
       playerctl # Allows Changing Media Volume Through Scripts
+      rhythmbox # audio player
       ripgrep # Improved Grep
       socat # Needed For Screenshots
       unrar # Tool For Handling .rar Files
@@ -103,8 +97,10 @@ in {
       upower # noctalia shell battery
       uwsm # Universal Wayland Session Manager (optional must be enabled)
       v4l-utils # Used For Things Like OBS Virtual Camera
+      warp-terminal # Terminal with AI support build in
       waypaper # Change wallpaper
       wget # Tool For Fetching Files With Links
       ytmdl # Tool For Downloading Audio From YouTube
+      python3 # Python 3 programming language
     ];
 }

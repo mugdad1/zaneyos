@@ -21,9 +21,11 @@
 in {
   imports =
     [
+      ./amfora.nix
       ./bash.nix
       ./bashrc-personal.nix
       ./overview.nix
+      ./python.nix
       ./cli/bat.nix
       ./cli/btop.nix
       ./cli/bottom.nix
@@ -46,6 +48,7 @@ in {
       ./rofi
       ./qt.nix
       ./scripts
+      ./scripts/gemini-cli.nix
       ./stylix.nix
       ./swappy.nix
       ./swaync.nix
@@ -55,6 +58,7 @@ in {
       ./wlogout
       ./xdg.nix
       ./yazi
+      ./zen-browser.nix
       ./zoxide.nix
       ./zsh
     ]

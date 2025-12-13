@@ -661,7 +661,7 @@ in {
 
         "custom/weather" = {
           "return-type" = "json";
-          exec = "sh -lc 'WEATHER_ICON_STYLE=emoji WEATHER_TOOLTIP_MARKUP=1 ~/.config/waybar/scripts/Weather.py'";
+          exec = "sh -lc 'WEATHER_ICON_STYLE=emoji WEATHER_TOOLTIP_MARKUP=1 ~/.local/bin/weather'";
           interval = 600;
           tooltip = true;
         };

@@ -126,7 +126,7 @@ in {
         "margin-right" = 8;
 
         modules-left = [
-          "custom/menu"
+          "custom/startmenu"
           "hyprland/workspaces"
           "custom/cava_mviz"
           "battery"
@@ -154,17 +154,7 @@ in {
           persistent-workspaces = {
             "*" = 10;
           };
-        };
-
-        "custom/menu" = {
-          format = "  ";
-          # on-click = "pkill rofi || rofi -show drun -modi run,drun,filebrowser,window";
-          on-click = "launch-nwg-menu";
-          on-click-middle = "$HOME/.config/hypr/UserScripts/WallpaperSelect.sh";
-          on-click-right = "$HOME/.config/hypr/scripts/WaybarLayout.sh";
-          tooltip = true;
-          tooltip-format = "Left Click: Rofi Menu\nMiddle Click: Wallpaper Menu\nRight Click: Waybar Layout Menu";
-        };
+        };)
 
         # Integrated CAVA visualizer using the inline script above
         "custom/cava_mviz" = {
@@ -199,7 +189,7 @@ in {
 
         "custom/weather" = {
           return-type = "json";
-          exec = "sh -lc 'WEATHER_ICON_STYLE=emoji WEATHER_TOOLTIP_MARKUP=1 ~/.config/waybar/scripts/Weather.py'";
+          exec = "sh -lc 'WEATHER_ICON_STYLE=emoji WEATHER_TOOLTIP_MARKUP=1 ~/.local/bin/weather'";
           interval = 600;
           tooltip = true;
         };

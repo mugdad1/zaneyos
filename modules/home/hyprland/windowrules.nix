@@ -49,6 +49,20 @@ in {
         "size 65% 60%, title:^(Cheatsheets Viewer)$"
         "center, class:^([Ff]erdium)$"
         "float, class:^([Ww]aypaper)$"
+        "float, class:^(org\\.qt-project\\.qml)$, title:^(Wallpapers)$"
+        "float, class:^(org\\.qt-project\\.qml)$, title:^(Video Wallpapers)$"
+        "center, class:^(org\\.qt-project\\.qml)$, title:^(Video Wallpapers)$"
+        "float, class:^(org\\.qt-project\\.qml)$, title:^(qs-wlogout)$"
+        "center, class:^(org\\.qt-project\\.qml)$, title:^(qs-wlogout)$"
+        "float, class:^(org\\.qt-project\\.qml)$, title:^(Panels)$"
+        "center, class:^(org\\.qt-project\\.qml)$, title:^(Panels)$"
+        "noshadow, class:^(org\\.qt-project\\.qml)$, title:^(Panels)$"
+        "noblur, class:^(org\\.qt-project\\.qml)$, title:^(Panels)$"
+        "rounding 12, class:^(org\\.qt-project\\.qml)$, title:^(Panels)$"
+        # qs-keybinds, qs-docs, qs-chevron floating viewer
+        "float, title:^(Hyprland Keybinds|Niri Keybinds|BSPWM Keybinds|i3 Keybinds|Sway Keybinds|DWM Keybinds|Emacs Leader Keybinds|Kitty Configuration|WezTerm Configuration|Ghostty Configuration|Yazi Configuration|Cheatsheets Viewer|Documentation Viewer)$"
+        "center, title:^(Hyprland Keybinds|Niri Keybinds|BSPWM Keybinds|i3 Keybinds|Sway Keybinds|DWM Keybinds|Emacs Leader Keybinds|Kitty Configuration|WezTerm Configuration|Ghostty Configuration|Yazi Configuration|Cheatsheets Viewer|Documentation Viewer)$"
+        "size 55% 66%, title:^(Hyprland Keybinds|Niri Keybinds|BSPWM Keybinds|i3 Keybinds|Sway Keybinds|DWM Keybinds|Emacs Leader Keybinds|Kitty Configuration|WezTerm Configuration|Ghostty Configuration|Yazi Configuration|Cheatsheets Viewer|Documentation Viewer)$"
         "center, class:^(pavucontrol|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$"
         "center, class:([Tt]hunar), title:negative:(.*[Tt]hunar.*)"
         "center, title:^(Authentication Required)$"
@@ -84,6 +98,32 @@ in {
         "keepaspectratio, title:^(Picture-in-Picture)$"
         "noblur, tag:games*"
         "fullscreen, tag:games*"
+      ];
+      windowrulev2 = [
+        # qs-wallpapers styling via compositor
+        "noborder, class:^(org\\.qt-project\\.qml)$, title:^(Wallpapers)$"
+        "noshadow, class:^(org\\.qt-project\\.qml)$, title:^(Wallpapers)$"
+        "noblur, class:^(org\\.qt-project\\.qml)$, title:^(Wallpapers)$"
+        "rounding 12, class:^(org\\.qt-project\\.qml)$, title:^(Wallpapers)$"
+
+        # qs-vid-wallpapers styling via compositor
+        "noborder, class:^(org\\.qt-project\\.qml)$, title:^(Video Wallpapers)$"
+        "noshadow, class:^(org\\.qt-project\\.qml)$, title:^(Video Wallpapers)$"
+        "noblur, class:^(org\\.qt-project\\.qml)$, title:^(Video Wallpapers)$"
+        "rounding 12, class:^(org\\.qt-project\\.qml)$, title:^(Video Wallpapers)$"
+
+        # qs-wlogout styling via compositor - power menu overlay
+        "noborder, class:^(org\\.qt-project\\.qml)$, title:^(qs-wlogout)$"
+        "rounding 20, class:^(org\\.qt-project\\.qml)$, title:^(qs-wlogout)$"
+        "opacity 1.0 1.0, class:^(org\\.qt-project\\.qml)$, title:^(qs-wlogout)$"
+
+        # qs-docs / qs-cheatsheets overlay windows
+        "noborder, class:^(org\\.qt-project\\.qml)$, title:^(Cheatsheets Viewer)$"
+        "noshadow, class:^(org\\.qt-project\\.qml)$, title:^(Cheatsheets Viewer)$"
+        "rounding 12, class:^(org\\.qt-project\\.qml)$, title:^(Cheatsheets Viewer)$"
+        "noborder, class:^(org\\.qt-project\\.qml)$, title:^(Documentation Viewer)$"
+        "noshadow, class:^(org\\.qt-project\\.qml)$, title:^(Documentation Viewer)$"
+        "rounding 12, class:^(org\\.qt-project\\.qml)$, title:^(Documentation Viewer)$"
       ];
     };
   };

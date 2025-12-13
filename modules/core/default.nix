@@ -20,11 +20,12 @@ in {
     # Conditionally import the display manager module
     (
       if vars.displayManager == "tui"
-      then ./greetd.nix
+      then ./ly.nix
       else ./sddm.nix
     )
     ./security.nix
     ./services.nix
+    ./steam.nix
     ./stylix.nix
     ./syncthing.nix
     ./system.nix

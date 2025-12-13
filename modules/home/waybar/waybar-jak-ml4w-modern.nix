@@ -90,6 +90,7 @@ in {
         "margin-right" = 8;
 
         "modules-left" = [
+          "custom/startmenu"
           "group/app_drawer"
           "custom/separator#blank"
           "custom/cava_mviz"
@@ -325,7 +326,7 @@ in {
           "format-alt-click" = "click";
           tooltip = true;
           "tooltip-format" = "{used:0.1f}GB/{total:0.1f}G";
-          "on-click-right" = "$HOME/.config/hypr/scripts/WaybarScripts.sh --btop";
+          "on-click-right" = "kitty -e btop";
         };
 
         mpris = {
@@ -378,7 +379,7 @@ in {
             "󰤥"
             "󰤨"
           ];
-          "on-click-right" = "$HOME/.config/hypr/scripts/WaybarScripts.sh --nmtui";
+          "on-click-right" = " kitty -e nmtui";
         };
 
         "network#speed" = {
@@ -493,43 +494,6 @@ in {
           "tooltip-format" = "Hyprpicker";
         };
 
-        "custom/file_manager" = {
-          format = " ";
-          "on-click" = "$HOME/.config/hypr/scripts/WaybarScripts.sh --files";
-          tooltip = true;
-          "tooltip-format" = "File Manager";
-        };
-
-        "custom/tty" = {
-          format = " ";
-          "on-click" = "$HOME/.config/hypr/scripts/WaybarScripts.sh --term";
-          tooltip = true;
-          "tooltip-format" = "Launch Terminal";
-        };
-
-        "custom/browser" = {
-          format = " ";
-          "on-click" = "xdg-open https://";
-          tooltip = true;
-          "tooltip-format" = "Launch Browser";
-        };
-
-        "custom/settings" = {
-          format = " ";
-          "on-click" = "$HOME/.config/hypr/scripts/Kool_Quick_Settings.sh";
-          tooltip = true;
-          "tooltip-format" = "Launch KooL Hyprland Settings Menu";
-        };
-
-        "custom/cycle_wall" = {
-          format = " ";
-          "on-click" = "$HOME/.config/hypr/UserScripts/WallpaperSelect.sh";
-          "on-click-right" = "$HOME/.config/hypr/UserScripts/WallpaperRandom.sh";
-          "on-click-middle" = "$HOME/.config/hypr/scripts/WaybarStyles.sh";
-          tooltip = true;
-          "tooltip-format" = "Left Click: Wallpaper Menu\nMiddle Click: Random wallpaper\nRight Click: Waybar Styles Menu";
-        };
-
         "custom/hypridle" = {
           format = "󱫗 ";
           "return-type" = "json";
@@ -539,13 +503,6 @@ in {
           exec = "$HOME/.config/hypr/scripts/Hypridle.sh status";
           "on-click" = "$HOME/.config/hypr/scripts/Hypridle.sh toggle";
           "on-click-right" = "hyprlock";
-        };
-
-        "custom/keyboard" = {
-          exec = "cat $HOME/.cache/kb_layout";
-          interval = 1;
-          format = " {}";
-          "on-click" = "$HOME/.config/hypr/scripts/SwitchKeyboardLayout.sh";
         };
 
         "custom/lock" = {

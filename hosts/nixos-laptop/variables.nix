@@ -11,8 +11,8 @@
 
   # Emable/disable bundled applications
   tmuxEnable = false;
-  alacrittyEnable = true;
-  weztermEnable = true;
+  alacrittyEnable = false;
+  weztermEnable = false;
   ghosttyEnable = false;
   vscodeEnable = false;
   antigravityEnable = false; # Google port of vscodium
@@ -49,7 +49,7 @@
   # Kitty, ghostty, wezterm, aalacrity
   # Note: kitty, wezterm, alacritty have to be enabled in `variables.nix`
   # Setting it here does not enable it. Kitty is installed by default
-  terminal = "kitty"; # Set Default System Terminal
+  terminal = "konsole"; # Set Default System Terminal
 
   keyboardLayout = "us";
   keyboardVariant = "";
