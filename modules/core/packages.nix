@@ -48,9 +48,9 @@ in {
       gnome-disk-utility
       fish
       gearlever
+      kdePackages.konsole
       firefox-bin
       upower
-      freetube
       wlsunset
       tailscale
       safeeyes
@@ -95,7 +95,6 @@ in {
       picard # For Changing Music Metadata & Getting Cover Art
       pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
       playerctl # Allows Changing Media Volume Through Scripts
-      rhythmbox # audio player
       ripgrep # Improved Grep
       socat # Needed For Screenshots
       unrar # Tool For Handling .rar Files
