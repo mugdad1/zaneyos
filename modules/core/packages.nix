@@ -48,7 +48,6 @@ in {
       gnome-disk-utility
       fish
       gearlever
-      kdePackages.konsole
       firefox-bin
       upower
       wlsunset
