@@ -141,6 +141,7 @@ in {
         "ALT,Tab, Bring Active To Top, bringactivetotop"
         # ============= MEDIA & HARDWARE CONTROLS =============
         ",XF86AudioRaiseVolume, Volume Up, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioMicMute, mute toggle, exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ",XF86AudioLowerVolume, Volume Down, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         " ,XF86AudioMute, Mute Toggle, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioPlay, Play Pause, exec, playerctl play-pause"
