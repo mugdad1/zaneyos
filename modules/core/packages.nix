@@ -42,6 +42,7 @@ in {
   environment.systemPackages = with pkgs;
     noctaliaPkgs
     ++ [
+      nemo-with-extensions
       obs-studio-plugins.obs-gstreamer
       obs-studio-plugins.wlrobs
       gnome-disk-utility
