@@ -42,7 +42,9 @@ in {
   environment.systemPackages = with pkgs;
     noctaliaPkgs
     ++ [
-      kdePackages.dolphin-plugins
+      zapzap
+      filen-desktop
+      telegram-desktop
       obs-studio-plugins.obs-gstreamer
       obs-studio-plugins.wlrobs
       gnome-disk-utility
