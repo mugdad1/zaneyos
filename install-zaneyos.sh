@@ -235,7 +235,7 @@ fi
 
 print_header "Cloning ZaneyOS Repository"
 git clone https://github.com/mugdad1/zaneyos.git --depth=1 ~/zaneyos
-cd ~/zaneyos || exit 
+cd ~/zaneyos || exit 1
 
 print_header "Git Configuration"
 echo "👤 Setting up git configuration for version control:"
