@@ -30,7 +30,7 @@
     opener = {
       edit = [
         {
-          run = ''${"EDITOR:-gedit"} "$@"'';
+          run = ''${"EDITOR:-vi"} "$@"'';
           desc = "$EDITOR";
           block = true;
           for = "unix";

@@ -9,13 +9,20 @@ pkgs.writeShellScriptBin "qs-wallpapers-apply" ''
 
   PRINT_ONLY=0
   SHELL_ONLY=0
+  RESTORE_ONLY=0
   while [ $# -gt 0 ]; do
     case "$1" in
       --print-only) PRINT_ONLY=1; shift ;;
       --shell-only) SHELL_ONLY=1; shift ;;
+      --restore)    RESTORE_ONLY=1; shift ;;
       *) break ;;
     esac
   done
+
+  if [ $RESTORE_ONLY -eq 1 ]; then
+    log "Restore requested; delegating to qs-wallpapers-restore"
+    exec qs-wallpapers-restore
+  fi
 
   BACKEND="''${WALLPAPER_BACKEND:-}"
   # Auto-detect sensible default backend per compositor when not provided via env
@@ -74,6 +81,12 @@ pkgs.writeShellScriptBin "qs-wallpapers-apply" ''
   tmp_txt="$STATE_FILE_TXT.tmp"
   ${pkgs.coreutils}/bin/printf '%s\n' "$sel" > "$tmp_txt"
   ${pkgs.coreutils}/bin/mv -f "$tmp_txt" "$STATE_FILE_TXT"
+
+  # Maintain a convenient symlink for other tools and themes
+  PIC_DIR="$HOME/Pictures"
+  CUR_LINK="$PIC_DIR/current_wallpaper"
+  ${pkgs.coreutils}/bin/mkdir -p "$PIC_DIR"
+  ${pkgs.coreutils}/bin/ln -sfn "$sel" "$CUR_LINK" || true
 
   # Update hyprlock wallpaper link if tool is available
   if command -v hyprlock-update-wallpaper-link >/dev/null 2>&1; then

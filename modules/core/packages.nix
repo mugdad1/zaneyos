@@ -18,7 +18,7 @@ in {
   programs = {
     neovim = {
       enable = true;
-      defaultEditor = false;
+      defaultEditor = true;
     };
     firefox.enable = false; # Firefox is not installed by default
     hyprland = {
