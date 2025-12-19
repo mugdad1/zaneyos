@@ -16,22 +16,13 @@ in {
     ./nh.nix
     ./quickshell.nix
     ./packages.nix
-    ./printing.nix
-    # Conditionally import the display manager module
-    (
-      if vars.displayManager == "tui"
-      then ./ly.nix
-      else ./sddm.nix
-    )
+    ./sddm.nix
     ./security.nix
     ./services.nix
-    ./steam.nix
     ./stylix.nix
-    ./syncthing.nix
     ./system.nix
     ./thunar.nix
     ./user.nix
-    ./virtualisation.nix
     ./xserver.nix
     ./cachix.nix
     inputs.stylix.nixosModules.stylix
