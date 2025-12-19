@@ -1,8 +1,8 @@
 {profile, ...}: {
   # Services to start
   services = {
-    resolved.enable = true;
     tailscale.enable = true;
+    resolved.enable = true;
     upower.enable = true; # noctalia shell battery
     libinput.enable = true; # Input Handling
     fstrim.enable = true; # SSD Optimizer

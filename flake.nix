@@ -47,7 +47,7 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    host = "nixoslaptop";
+    host = "nixos-laptop";
     profile = "intel";
     username = "mugdad";
 

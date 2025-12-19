@@ -29,7 +29,6 @@ in {
       ./cli/btop.nix
       ./cli/bottom.nix
       ./cli/cava.nix
-      ./emoji.nix
       ./eza.nix
       ./fastfetch
       ./cli/fzf.nix

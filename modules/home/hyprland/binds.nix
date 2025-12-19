@@ -10,7 +10,7 @@
   noctaliaBind =
     if barChoice == "noctalia"
     then [
-      "$modifier,a, Noctalia Launcher, exec, noctalia-shell ipc call launcher toggle"
+      "$modifier,A, Noctalia Launcher, exec, noctalia-shell ipc call launcher toggle"
       "$modifier,M, Noctalia Notifications, exec, noctalia-shell ipc call notifications toggleHistory"
       "$modifier,V, Noctalia Clipboard, exec, noctalia-shell ipc call launcher clipboard"
       "$modifier ALT,P, Noctalia Settings, exec, noctalia-shell ipc call settings toggle"
@@ -66,7 +66,9 @@ in {
         "$modifier ALT,S, Screenshot Region, exec, hyprshot -m region -o $HOME/Pictures/ScreenShots"
         "$modifier,O, OBS Studio, exec, obs"
         "$modifier ALT,C, Color Picker, exec, hyprpicker -a"
+        "$modifier,G, GIMP, exec, gimp"
         "$modifier shift,T, Dropdown Terminal, exec, pypr toggle term"
+        "$modifier,T, Thunar, exec, thunar"
         "$modifier ALT,M, Audio Control, exec, pavucontrol"
         # ============= WINDOW MANAGEMENT =============
         "$modifier,Q, Kill Active Window, killactive,"
@@ -139,10 +141,10 @@ in {
         "ALT,Tab, Cycle Next Window, cyclenext"
         "ALT,Tab, Bring Active To Top, bringactivetotop"
         # ============= MEDIA & HARDWARE CONTROLS =============
+        ",XF86AudioMicMute, mute toggle, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ",XF86AudioRaiseVolume, Volume Up, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
         ",XF86AudioLowerVolume, Volume Down, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         " ,XF86AudioMute, Mute Toggle, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ",XF86AudioMicMute, mute toggle, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ",XF86AudioPlay, Play Pause, exec, playerctl play-pause"
         ",XF86AudioPause, Play Pause, exec, playerctl play-pause"
         ",XF86AudioNext, Next Track, exec, playerctl next"

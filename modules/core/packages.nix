@@ -42,6 +42,12 @@ in {
   environment.systemPackages = with pkgs;
     noctaliaPkgs
     ++ [
+      alejandra # nix formatter
+      appimage-run # Needed For AppImage Support
+      brightnessctl # For Screen Brightness Control
+      cliphist # Clipboard manager using rofi menu
+      vscode-fhs
+      vscodium-fhs
       zapzap
       filen-desktop
       telegram-desktop
@@ -56,12 +62,9 @@ in {
       safeeyes
       onlyoffice-desktopeditors
       logisim-evolution
-      alejandra # nix formatter
-      appimage-run # Needed For AppImage Support
-      brightnessctl # For Screen Brightness Control
-      cliphist # Clipboard manager using rofi menu
       cmatrix # Matrix Movie Effect In Terminal
       cowsay # Great Fun Terminal Program
+      discord # Stable client
       duf # Utility For Viewing Disk Usage In Terminal
       dysk # Disk space util nice formattting
       eza # Beautiful ls Replacement
@@ -94,7 +97,7 @@ in {
       pciutils # Collection Of Tools For Inspecting PCI Devices
       picard # For Changing Music Metadata & Getting Cover Art
       pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
-      playerctl # Allows Changing Media Volume Through S
+      playerctl # Allows Changing Media Volume Through Scripts
       ripgrep # Improved Grep
       socat # Needed For Screenshots
       unrar # Tool For Handling .rar Files
@@ -103,7 +106,6 @@ in {
       upower # noctalia shell battery
       uwsm # Universal Wayland Session Manager (optional must be enabled)
       v4l-utils # Used For Things Like OBS Virtual Camera
-      waypaper # Change wallpaper
       wget # Tool For Fetching Files With Links
       ytmdl # Tool For Downloading Audio From YouTube
       python3 # Python 3 programming language
