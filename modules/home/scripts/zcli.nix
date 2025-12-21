@@ -382,10 +382,10 @@ in
         ;;
       list-gens)
         echo "--- User Generations ---"
-        ${pkgs.nix}/bin/nix-env --list-generations | ${pkgs.coreutils}/bin/cat || echo "Could not list user generations."
+        ${pkgs.nix}/bin/nix-env --list-generations || echo "Could not list user generations."
         echo ""
         echo "--- System Generations ---"
-        ${pkgs.nix}/bin/nix profile history --profile /nix/var/nix/profiles/system | ${pkgs.coreutils}/bin/cat || echo "Could not list system generations."
+        ${pkgs.nix}/bin/nix profile history --profile /nix/var/nix/profiles/system || echo "Could not list system generations."
         ;;
       rebuild)
         verify_hostname
