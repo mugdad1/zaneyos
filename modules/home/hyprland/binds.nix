@@ -10,7 +10,7 @@
   noctaliaBind =
     if barChoice == "noctalia"
     then [
-      "$modifier,A, Noctalia Launcher, exec, qs- c noctalia-shell ipc call launcher toggle"
+      "$modifier, a , Noctalia Launcher, exec, qs- c noctalia-shell ipc call launcher toggle"
       "$modifier,M, Noctalia Notifications, exec, qs- c noctalia-shell ipc call notifications toggleHistory"
       "$modifier,V, Noctalia Clipboard, exec, qs- c noctalia-shell ipc call launcher clipboard"
       "$modifier ALT,P, Noctalia Settings, exec, qs- c noctalia-shell ipc call settings toggle"
