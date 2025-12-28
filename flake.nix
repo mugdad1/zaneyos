@@ -29,7 +29,7 @@
     };
 
     zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake/beta";
+      url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     alejandra = {
