@@ -10,22 +10,23 @@ in {
   options.drivers.nvidia-amd-hybrid = {
     enable = mkEnableOption "Enable AMD iGPU + NVIDIA dGPU (Prime offload)";
     # AMD iGPU Bus ID (e.g., PCI:5:0:0). Expose as option for future host wiring.
-    amdgpuBusID = mkOption {
+    amdgpuBusId = mkOption {
       type = types.str;
       default = "PCI:5:0:0";
-      description = "PCI Bus ID for AMD iGPU (amdgpuBusId)";
+      description = "PCI Bus ID for AMD iGPU";
     };
     # NVIDIA dGPU Bus ID (e.g., PCI:1:0:0)
-    nvidiaBusID = mkOption {
+    nvidiaBusId = mkOption {
       type = types.str;
       default = "PCI:1:0:0";
-      description = "PCI Bus ID for NVIDIA dGPU (nvidiaBusId)";
+      description = "PCI Bus ID for NVIDIA dGPU";
     };
   };
 
   config = mkIf cfg.enable {
     # Enforce kernel 6.12 when this hybrid config is selected
-    boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_12;
+    # Not sure this is still neeeded but leaving just in case
+    # boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_12;
 
     services.xserver.videoDrivers = ["nvidia"];
 
@@ -47,8 +48,8 @@ in {
         };
 
         # Wire from options
-        amdgpuBusId = cfg.amdgpuBusID;
-        nvidiaBusId = cfg.nvidiaBusID;
+        amdgpuBusId = cfg.amdgpuBusId;
+        nvidiaBusId = cfg.nvidiaBusId;
       };
     };
   };

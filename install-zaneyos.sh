@@ -154,8 +154,10 @@ if lspci | grep -qi 'vga\|3d'; then
 
   if $has_vm; then
     DETECTED_PROFILE="vm"
+  elif $has_nvidia && $has_amd; then
+    DETECTED_PROFILE="amd-nvidia-hybrid"
   elif $has_nvidia && $has_intel; then
-    DETECTED_PROFILE="hybrid"
+    DETECTED_PROFILE="nvidia-laptop"
   elif $has_nvidia; then
     DETECTED_PROFILE="nvidia"
   elif $has_amd; then
@@ -183,9 +185,10 @@ if [ -z "$profile" ]; then
   read -rp "Enter Your Hardware Profile (GPU)
 Options:
 [ amd ]
+amd-nvidia-hybrid
+intel
 nvidia
 nvidia-laptop
-intel
 vm
 Please type out your choice: " profile
   if [ -z "$profile" ]; then
@@ -234,7 +237,7 @@ else
 fi
 
 print_header "Cloning ZaneyOS Repository"
-git clone https://github.com/mugdad1/zaneyos.git  --depth=1 -b laptop ~/zaneyos
+git clone https://github.com/mugdad1/zaneyos.git -b laptop --depth=1 ~/zaneyos
 cd ~/zaneyos || exit 1
 
 print_header "Git Configuration"
