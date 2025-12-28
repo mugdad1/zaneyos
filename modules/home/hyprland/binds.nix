@@ -27,7 +27,7 @@
   rofiBind =
     if barChoice != "noctalia"
     then [
-      "$modifier,D, Rofi Launcher, exec, rofi-launcher"
+      "$modifier,A, Rofi Launcher, exec, rofi-launcher"
       "$modifier SHIFT,Return, Rofi Launcher, exec, rofi-launcher"
     ]
     else [];
@@ -46,7 +46,6 @@ in {
       ++ rofiClipboardBind
       ++ [
         # ============= WORKSPACE OVERVIEW =============
-        "$modifier CTRL,D, Toggle Dock, exec, dock"
         "$modifier, TAB, QS Overview, exec, qs ipc -c overview call overview toggle"
         # ============= TERMINALS =============
         "$modifier,Return, Terminal, exec, ${terminal}"
@@ -54,23 +53,18 @@ in {
         "$modifier,K, Keybinds Search Tool, exec, qs-keybinds"
         "$modifier CTRL,C, Cheatsheets Viewer, exec, qs-cheatsheets"
         "$modifier SHIFT,K, Legacy Keybinds Menu, exec, list-keybinds"
-        "$modifier SHIFT,D, Discord, exec, discord"
         "$modifier ALT,W, Web Search, exec, web-search"
         "$modifier SHIFT,W, QS Wallpaper Setter, exec, qs-wallpapers-apply"
         "$modifier SHIFT,N, Notification Reset, exec, swaync-client -rs"
-        "$modifier,W, Web Browser, exec, ${browser}"
+        "$modifier,B, Web Browser, exec, ${browser}"
         "$modifier,Y, File Manager, exec, kitty -e yazi"
-        "$modifier,E, Emoji Picker, exec, emopicker9000"
         "$modifier,S, Screenshot, exec, screenshootin"
         # ============= SCREENSHOTS =============
         "$modifier CTRL,S, Screenshot Output, exec, hyprshot -m output -o $HOME/Pictures/ScreenShots"
         "$modifier SHIFT,S, Screenshot Window, exec, hyprshot -m window -o $HOME/Pictures/ScreenShots"
         "$modifier ALT,S, Screenshot Region, exec, hyprshot -m region -o $HOME/Pictures/ScreenShots"
-        "$modifier,O, OBS Studio, exec, obs"
-        "$modifier ALT,C, Color Picker, exec, hyprpicker -a"
-        "$modifier,G, GIMP, exec, gimp"
         "$modifier shift,T, Dropdown Terminal, exec, pypr toggle term"
-        "$modifier,T, Thunar, exec, thunar"
+        "$modifier,E, Thunar, exec, thunar"
         "$modifier ALT,M, Audio Control, exec, pavucontrol"
         # ============= WINDOW MANAGEMENT =============
         "$modifier,Q, Kill Active Window, killactive,"
@@ -160,4 +154,3 @@ in {
     ];
   };
 }
-
