@@ -84,7 +84,7 @@ in {
       lolcat # Add Colors To Your Terminal Command Output
       lshw # Detailed Hardware Information
       mdcat # CLI markdown parser
-      mpv # Incredible Video Player
+      vlc
       ncdu # Disk Usage Analyzer With Ncurses Interface
       nixfmt-rfc-style # Nix Formatter
       nwg-displays # configure monitor configs via GUI
