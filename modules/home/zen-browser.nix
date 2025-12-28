@@ -3,8 +3,7 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   extension = shortId: guid: {
     name = guid;
     value = {
@@ -25,21 +24,21 @@ let
     # the short ID in the url (like https://addons.mozilla.org/en-US/firefox/addon/!SHORT_ID!/)
     # Then go to https://addons.mozilla.org/api/v5/addons/addon/!SHORT_ID!/ to get the guid
     (extension "ublock-origin" "uBlock0@raymondhill.net")
-    (extension "privacy-badger" "jid1-MnnxcxisBPnSXQ@jetpack")
+    (extension "privacy-badger17" "jid1-MnnxcxisBPnSXQ@jetpack")
 
     # ...
   ];
-
-in
-{
+in {
   home.packages = [
-    (pkgs.wrapFirefox
+    (
+      pkgs.wrapFirefox
       inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.zen-browser-unwrapped
       {
         extraPrefs = lib.concatLines (
           lib.mapAttrsToList (
             name: value: ''lockPref(${lib.strings.toJSON name}, ${lib.strings.toJSON value});''
-          ) prefs
+          )
+          prefs
         );
 
         extraPolicies = {
