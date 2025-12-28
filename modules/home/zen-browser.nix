@@ -33,7 +33,7 @@ in
     DisableTelemetry = true;
     ExtensionSettings = builtins.listToAttrs extensions;
     SearchEngines = {
-      Default = "ddg";
+      Default = "google";
       Add = [
         {
           Name        = "nixpkgs packages";
