@@ -1,9 +1,9 @@
-{ pkgs
-, lib
-, inputs
-, ... }:
-
-let
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: let
   extension = shortId: guid: {
     name = guid;
     value = {
@@ -22,9 +22,8 @@ let
   ];
 
   # use the beta variant
-  zenPkg = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.beta;
-in
-{
+  zenPkg = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system};
+in {
   home.packages = [
     zenPkg
   ];
@@ -36,35 +35,35 @@ in
       Default = "google";
       Add = [
         {
-          Name        = "nixpkgs packages";
+          Name = "nixpkgs packages";
           URLTemplate = "https://search.nixos.org/packages?query={searchTerms}";
-          IconURL     = "https://wiki.nixos.org/favicon.ico";
-          Alias       = "@np";
+          IconURL = "https://wiki.nixos.org/favicon.ico";
+          Alias = "@np";
         }
         {
-          Name        = "NixOS options";
+          Name = "NixOS options";
           URLTemplate = "https://search.nixos.org/options?query={searchTerms}";
-          IconURL     = "https://wiki.nixos.org/favicon.ico";
-          Alias       = "@no";
+          IconURL = "https://wiki.nixos.org/favicon.ico";
+          Alias = "@no";
         }
         {
-          Name        = "NixOS Wiki";
+          Name = "NixOS Wiki";
           URLTemplate = "https://wiki.nixos.org/w/index.php?search={searchTerms}";
-          IconURL     = "https://wiki.nixos.org/favicon.ico";
-          Alias       = "@nw";
+          IconURL = "https://wiki.nixos.org/favicon.ico";
+          Alias = "@nw";
         }
         {
-          Name        = "noogle";
+          Name = "noogle";
           URLTemplate = "https://noogle.dev/q?term={searchTerms}";
-          IconURL     = "https://noogle.dev/favicon.ico";
-          Alias       = "@ng";
+          IconURL = "https://noogle.dev/favicon.ico";
+          Alias = "@ng";
         }
       ];
     };
   };
 
-  home.file.".config/zen-browser/mozprefs.js".text = lib.concatStringsSep "\n" (lib.mapAttrsToList (name: value:
-    "lockPref(${lib.strings.toJSON name}, ${lib.strings.toJSON value});"
-  ) prefs);
+  home.file.".config/zen-browser/mozprefs.js".text = lib.concatStringsSep "\n" (lib.mapAttrsToList (
+      name: value: "lockPref(${lib.strings.toJSON name}, ${lib.strings.toJSON value});"
+    )
+    prefs);
 }
-
