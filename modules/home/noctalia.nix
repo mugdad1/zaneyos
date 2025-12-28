@@ -27,4 +27,27 @@ in {
       chmod -R u+rwX "$DEST"
     fi
   '';
+
+  # Enable the noctalia-shell systemd user service
+  systemd.user.services.noctalia-shell = {
+    Unit = {
+      Description = "Noctalia Shell - Wayland desktop shell";
+      Documentation = "https://docs.noctalia.dev/docs";
+      PartOf = ["graphical-session.target"];
+      After = ["graphical-session-pre.target"];
+      Wants = ["graphical-session-target"];
+    };
+    Service = {
+      ExecStart = "${pkgs.quickshell}/bin/quickshell --path %h/.config/quickshell/noctalia-shell";
+      Restart = "always";
+      RestartSec = 5;
+      Environment = [
+        "QML_IMPORT_PATH=${pkgs.qt6.qt5compat}/lib/qt-6/qml:${pkgs.qt6.qtbase}/lib/qt-6/qml"
+        "QML2_IMPORT_PATH=${pkgs.qt6.qt5compat}/lib/qt-6/qml:${pkgs.qt6.qtbase}/lib/qt-6/qml"
+      ];
+    };
+    Install = {
+      WantedBy = ["graphical-session.target"];
+    };
+  };
 }

@@ -407,17 +407,18 @@
             return #lines > 0 and lines or nil
           end
 
-          header_lines = gen_banner('toilet -f ansi-shadow NIXOS 2>/dev/null')
-            or gen_banner('figlet -f "ANSI Shadow" NIXOS 2>/dev/null')
-            or gen_banner('figlet NIXOS 2>/dev/null')
+          header_lines = gen_banner('toilet -f ansi-shadow NIXVIM 2>/dev/null')
+            or gen_banner('figlet -f "ANSI Shadow" NIXVIM 2>/dev/null')
+            or gen_banner('figlet NIXVIM 2>/dev/null')
 
           if not header_lines then
             header_lines = {
-              " _   _ ___  __  __  ___   ___   ____  ",
-              "| \\ | |_ _| \\ \\/ / / _ \\ / _ \\\ |  _ \\ ",
-              "|  \\| || |   \\  / | | | | | | || | | |",
-              "| |\\  || |   /  \\ | |_| | |_| || |_| |",
-              "|_| \\_|___| /_/\\_\\ \\___/ \\___/ |____/ ",
+              "███╗   ██╗██╗██╗  ██╗██╗   ██╗██╗███╗   ███╗",
+              "████╗  ██║██║╚██╗██╔╝██║   ██║██║████╗ ████║",
+              "██╔██╗ ██║██║ ╚███╔╝ ██║   ██║██║██╔████╔██║",
+              "██║╚██╗██║██║ ██╔██╗ ╚██╗ ██╔╝██║██║╚██╔╝██║",
+              "██║ ╚████║██║██╔╝ ██╗ ╚████╔╝ ██║██║ ╚═╝ ██║",
+              "╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝",
             }
           end
           dashboard.section.header.val = header_lines
