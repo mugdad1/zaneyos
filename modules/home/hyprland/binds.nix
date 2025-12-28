@@ -10,7 +10,7 @@
   noctaliaBind =
     if barChoice == "noctalia"
     then [
-      "$modifier,A, Noctalia Launcher, exec, qs -c noctalia-shell ipc call launcher toggle"
+      "$modifier,D, Noctalia Launcher, exec, qs -c noctalia-shell ipc call launcher toggle"
       "$modifier SHIFT,Return, Noctalia Launcher, exec, qs -c  noctalia-shell ipc call launcher toggle"
       "$modifier,M, Noctalia Notifications, exec, qs -c noctalia-shell ipc call notifications toggleHistory"
       "$modifier,V, Noctalia Clipboard, exec, qs -c noctalia-shell ipc call launcher clipboard"
@@ -58,8 +58,9 @@ in {
         "$modifier ALT,W, Web Search, exec, web-search"
         "$modifier SHIFT,W, QS Wallpaper Setter, exec, qs-wallpapers-apply"
         "$modifier SHIFT,N, Notification Reset, exec, swaync-client -rs"
-        "$modifier,B, Web Browser, exec, ${browser}"
+        "$modifier,W, Web Browser, exec, ${browser}"
         "$modifier,Y, File Manager, exec, kitty -e yazi"
+        "$modifier,E, Emoji Picker, exec, emopicker9000"
         "$modifier,S, Screenshot, exec, screenshootin"
         # ============= SCREENSHOTS =============
         "$modifier CTRL,S, Screenshot Output, exec, hyprshot -m output -o $HOME/Pictures/ScreenShots"
@@ -69,7 +70,7 @@ in {
         "$modifier ALT,C, Color Picker, exec, hyprpicker -a"
         "$modifier,G, GIMP, exec, gimp"
         "$modifier shift,T, Dropdown Terminal, exec, pypr toggle term"
-        "$modifier,E, Thunar, exec, thunar"
+        "$modifier,T, Thunar, exec, thunar"
         "$modifier ALT,M, Audio Control, exec, pavucontrol"
         # ============= WINDOW MANAGEMENT =============
         "$modifier,Q, Kill Active Window, killactive,"
@@ -159,3 +160,4 @@ in {
     ];
   };
 }
+
