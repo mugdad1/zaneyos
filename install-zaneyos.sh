@@ -234,7 +234,7 @@ else
 fi
 
 print_header "Cloning ZaneyOS Repository"
-git clone https://github.com/mugdad1/zaneyos.git  --depth=1 ~/zaneyos
+git clone https://github.com/mugdad1/zaneyos.git  --depth=1 -b desktop ~/zaneyos
 cd ~/zaneyos || exit 1
 
 print_header "Git Configuration"
