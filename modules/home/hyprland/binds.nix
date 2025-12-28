@@ -10,16 +10,17 @@
   noctaliaBind =
     if barChoice == "noctalia"
     then [
-      "$modifier, a , Noctalia Launcher, exec, qs- c noctalia-shell ipc call launcher toggle"
-      "$modifier,M, Noctalia Notifications, exec, qs- c noctalia-shell ipc call notifications toggleHistory"
-      "$modifier,V, Noctalia Clipboard, exec, qs- c noctalia-shell ipc call launcher clipboard"
-      "$modifier ALT,P, Noctalia Settings, exec, qs- c noctalia-shell ipc call settings toggle"
-      "$modifier SHIFT,comma, Noctalia Settings, exec,qs- c noctalia-shell ipc call settings toggle"
-      "$modifier ALT,L, Noctalia Lock Screen, exec, qs- c noctalia-shell ipc call sessionMenu lockAndSuspend"
-      #"$modifier SHIFT,W, Noctalia Wallpaper, exec, noctalia-shell ipc call wallpaper toggle"
-      "$modifier,X, Noctalia Power Menu, exec, qs- c noctalia-shell ipc call sessionMenu toggle"
-      "$modifier,C, Noctalia Control Center, exec, qs- c noctalia-shell ipc call controlCenter toggle"
-      "$modifier CTRL,R, Noctalia Screen Recorder, exec, qs- c noctalia-shell ipc call screenRecorder toggle"
+      "$modifier,D, Noctalia Launcher, exec, qs -c noctalia-shell ipc call launcher toggle"
+      "$modifier SHIFT,Return, Noctalia Launcher, exec, qs -c  noctalia-shell ipc call launcher toggle"
+      "$modifier,M, Noctalia Notifications, exec, qs -c noctalia-shell ipc call notifications toggleHistory"
+      "$modifier,V, Noctalia Clipboard, exec, qs -c noctalia-shell ipc call launcher clipboard"
+      "$modifier ALT,P, Noctalia Settings, exec, qs -c noctalia-shell ipc call settings toggle"
+      "$modifier SHIFT,comma, Noctalia Settings, exec, qs -c noctalia-shell ipc call settings toggle"
+      "$modifier ALT,L, Noctalia Lock Screen, exec, qs -c noctalia-shell ipc call sessionMenu lockAndSuspend"
+      "$modifier SHIFT,W, Noctalia Wallpaper, exec, qs -c noctalia-shell ipc call wallpaper toggle"
+      "$modifier,X, Noctalia Power Menu, exec, qs -c noctalia-shell ipc call sessionMenu toggle"
+      "$modifier,C, Noctalia Control Center, exec, qs -c noctalia-shell ipc call controlCenter toggle"
+      "$modifier CTRL,R, Noctalia Screen Recorder, exec, qs -c noctalia-shell ipc call screenRecorder toggle"
     ]
     else [];
   # Rofi launcher bindings (only included when barChoice != "noctalia")
@@ -57,8 +58,9 @@ in {
         "$modifier ALT,W, Web Search, exec, web-search"
         "$modifier SHIFT,W, QS Wallpaper Setter, exec, qs-wallpapers-apply"
         "$modifier SHIFT,N, Notification Reset, exec, swaync-client -rs"
-        "$modifier,b, Web Browser, exec, ${browser}"
+        "$modifier,W, Web Browser, exec, ${browser}"
         "$modifier,Y, File Manager, exec, kitty -e yazi"
+        "$modifier,E, Emoji Picker, exec, emopicker9000"
         "$modifier,S, Screenshot, exec, screenshootin"
         # ============= SCREENSHOTS =============
         "$modifier CTRL,S, Screenshot Output, exec, hyprshot -m output -o $HOME/Pictures/ScreenShots"
@@ -141,7 +143,6 @@ in {
         "ALT,Tab, Cycle Next Window, cyclenext"
         "ALT,Tab, Bring Active To Top, bringactivetotop"
         # ============= MEDIA & HARDWARE CONTROLS =============
-        ",XF86AudioMicMute, mute toggle, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ",XF86AudioRaiseVolume, Volume Up, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
         ",XF86AudioLowerVolume, Volume Down, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         " ,XF86AudioMute, Mute Toggle, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
