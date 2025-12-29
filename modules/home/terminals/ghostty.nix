@@ -46,13 +46,7 @@ in {
       confirm-close-surface = "false";
       font-family = "Maple Mono NF";
       font-size = 12;
-<<<<<<< HEAD
       theme = "dark:catppuccin-mocha,light:catppuccin-mocha";
-||||||| 356e9c8
-      theme = "dark:catppuccin-mocha,light:catppuccin-mocha";
-=======
-      theme = "tokyonight_moon";
->>>>>>> refs/remotes/origin/desktop
       adjust-cell-height = "10%";
       window-theme = "dark";
       window-height = "32";
