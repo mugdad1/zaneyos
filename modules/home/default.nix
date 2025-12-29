@@ -31,6 +31,7 @@ in {
       ./cli/cava.nix
       ./eza.nix
       ./fastfetch
+      ./firefox.nix
       ./cli/fzf.nix
       ./cli/gh.nix
       ./cli/git.nix
