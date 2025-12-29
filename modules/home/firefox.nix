@@ -4,20 +4,17 @@ let
   # Use NUR’s legacyPackages output so we avoid the <nixpkgs> pure‑mode error.
   nurPkgs = inputs.nur.legacyPackages."x86_64-linux";
 in
-
 {
-  # Optional: state version for Home Manager (set early)
-  home.stateVersion = "25.11";
+  # Don’t set home.stateVersion here (central in your core user module).
 
   programs.firefox = {
     enable = true;
 
-    # Define a profile named "default"
     profiles.default = {
       id = 0;
       isDefault = true;
 
-      # Firefox preferences (about:config)
+      # Firefox preferences
       settings = {
         "extensions.autoDisableScopes" = 0;
         "extensions.enabledScopes" = 15;
@@ -25,30 +22,51 @@ in
         "browser.search.suggest.enabled" = false;
       };
 
-      # Install extensions from NUR’s firefox‑addons repository
-      # using `inputs.nur.legacyPackages`, which avoids the <nixpkgs> importing issue.
-      extensions.packages = with nurPkgs.repos.rycee.firefox-addons; [
-        ublock-origin
-        privacy-badger
+      # Extra raw prefs, if you want more
+      extraConfig = lib.concatStringsSep "\n" [
+        # Example extra prefs
+        ''user_pref("layout.spellcheckDefault", true);''
+        ''user_pref("widget.use-xdg-desktop-portal.file-picker", true);''
       ];
 
-      # Example search engine configuration
-      search.default = "DuckDuckGo";
+      # Search engine config
+      search.default = "ddg";
       search.engines = {
-        DuckDuckGo = {
+        ddg = {
           urls = [
             { template = "https://duckduckgo.com/?q={searchTerms}"; }
           ];
           definedAliases = [ "ddg" ];
         };
-        BraveSearch = {
+        brave = {
           urls = [
             { template = "https://search.brave.com/search?q={searchTerms}&summary=0"; }
           ];
           definedAliases = [ "brave" ];
         };
+        osm = {
+          urls = [
+            { template = "https://www.openstreetmap.org/search?query={searchTerms}"; }
+          ];
+          definedAliases = [ "osm" ];
+        };
+        wiki = {
+          urls = [
+            { template = "https://en.wikipedia.org/wiki/Special:Search?search={searchTerms}"; }
+          ];
+          definedAliases = [ "wiki" ];
+        };
       };
+
+      # Extensions from NUR
+      extensions.packages = with nurPkgs.repos.rycee.firefox-addons; [
+        ublock-origin
+        privacy-badger
+      ];
     };
   };
-}
 
+  # Tell Stylix which Firefox profile names to apply styling to.
+  # Stylix requires this explicitly due to module system limitations. :contentReference[oaicite:0]{index=0}
+  stylix.targets.firefox.profileNames = [ "default" ];
+}
