@@ -3,13 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/release-25.11";
-
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # ✦ Add NUR input
+    # ✦ Add NUR
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,31 +17,11 @@
     nvf.url = "github:notashelf/nvf";
     stylix.url = "github:danth/stylix/release-25.11";
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
-
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixvim = {
-      url = "github:nix-community/nixvim/nixos-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    antigravity-nix = {
-      url = "github:jacopone/antigravity-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    alejandra = {
-      url = "github:kamadorueda/alejandra";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    noctalia = { url = "github:noctalia-dev/noctalia-shell"; inputs.nixpkgs.follows = "nixpkgs"; };
+    nixvim = { url = "github:nix-community/nixvim/nixos-25.11"; inputs.nixpkgs.follows = "nixpkgs"; };
+    antigravity-nix = { url = "github:jacopone/antigravity-nix"; inputs.nixpkgs.follows = "nixpkgs"; };
+    zen-browser = { url = "github:youwen5/zen-browser-flake"; inputs.nixpkgs.follows = "nixpkgs"; };
+    alejandra = { url = "github:kamadorueda/alejandra"; inputs.nixpkgs.follows = "nixpkgs"; };
   };
 
   outputs = { self, nixpkgs, home-manager, nur, nix-flatpak, nixvim, alejandra, ... } @ inputs:
@@ -52,13 +31,9 @@
     profile = "intel";
     username = "mugdad";
 
-    # Import nixpkgs with the NUR overlay applied
     pkgs = import nixpkgs {
       inherit system;
-      overlays = [
-        # ✦ Use the correct NUR overlay
-        nur.overlays.default
-      ];
+      overlays = []; # no need to overlay NUR here
     };
 
     mkNixosConfig = gpuProfile: nixpkgs.lib.nixosSystem {
@@ -67,19 +42,12 @@
 
       modules = [
         ./modules/core/overlays.nix
-
-        # Apply the same NUR overlay at NixOS module scope
-        ({ pkgs, ... }: {
-          nixpkgs.overlays = [
-            inputs.nur.overlays.default
-          ];
-        })
-
         ./profiles/${gpuProfile}
         nix-flatpak.nixosModules.nix-flatpak
       ];
     };
-  in {
+  in
+  {
     nixosConfigurations = {
       amd = mkNixosConfig "amd";
       nvidia = mkNixosConfig "nvidia";
