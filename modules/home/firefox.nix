@@ -1,70 +1,38 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 let
-  # Import NUR so we can use firefox addon packages
-  nurPkgs = import inputs.nur {
-    inherit pkgs;
-  };
-
-  # Helper to add raw prefs via extraConfig
-  rawPrefs = lib.concatMapStringsSep "\n" (name: value:
-    "user_pref(${lib.strings.toJSON name}, ${lib.strings.toJSON value});"
-  ) (lib.attrNames config.firefoxRawSettings or {});
-
+  # Use NUR’s legacyPackages output so we avoid the <nixpkgs> pure‑mode error.
+  nurPkgs = inputs.nur.legacyPackages."x86_64-linux";
 in
+
 {
-  # Optional: if you also want zen-browser config compatibility
-  # config.firefoxRawSettings = { "extensions.autoDisableScopes" = 0; "extensions.enabledScopes" = 15; };
+  # Optional: state version for Home Manager (set early)
+  home.stateVersion = "25.11";
 
   programs.firefox = {
     enable = true;
 
-    # Use wrapped firefox so HW acceleration, policies, etc. behave
-    package = pkgs.wrapFirefox pkgs.firefox-unwrapped { };
-
-    # Global enterprise policies (like your zen-browser example)
-    policies = {
-      DisableTelemetry = true;
-      DisableFirefoxStudies = true;
-      DontCheckDefaultBrowser = true;
-      FirefoxSuggest = {
-        WebSuggestions = false;
-        SponsoredSuggestions = false;
-        ImproveSuggest = false;
-        Locked = true;
-      };
-      UserMessaging = {
-        ExtensionRecommendations = false;
-        UrlbarInterventions = false;
-        SkipOnboarding = true;
-        MoreFromMozilla = false;
-        FirefoxLabs = true;
-      };
-    };
-
+    # Define a profile named "default"
     profiles.default = {
       id = 0;
       isDefault = true;
 
-      # From your zen-browser prefs + my suggestions
+      # Firefox preferences (about:config)
       settings = {
-        "layout.spellcheckDefault" = 1;
-        "widget.use-xdg-desktop-portal.file-picker" = 1;
+        "extensions.autoDisableScopes" = 0;
+        "extensions.enabledScopes" = 15;
         "privacy.resistFingerprinting" = true;
         "browser.search.suggest.enabled" = false;
-        "browser.urlbar.suggest.searches" = false;
       };
 
-      # Extra raw prefs like `extensions.*Scopes = …`
-      extraConfig = rawPrefs;
-
-      # Extensions via NUR
-      extensions = with nurPkgs.repos.rycee.firefox-addons; [
+      # Install extensions from NUR’s firefox‑addons repository
+      # using `inputs.nur.legacyPackages`, which avoids the <nixpkgs> importing issue.
+      extensions.packages = with nurPkgs.repos.rycee.firefox-addons; [
         ublock-origin
         privacy-badger
       ];
 
-      # Search engine settings
+      # Example search engine configuration
       search.default = "DuckDuckGo";
       search.engines = {
         DuckDuckGo = {
