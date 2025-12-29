@@ -8,7 +8,7 @@
 in {
   # Install Ghostty theme(s) so referenced names resolve even if the package's share/themes doesn't include them
   home.file = {
-    "${ghostHome}/themes/catppuccin-mocha".source = ./ghostty-themes/catppuccin-mocha;
+    "${ghostHome}/themes/tokyonight_moon.html".source = ./ghostty-themes/tokyonight_moon.html;
 
     # Optional: dedicated background overlay config for reference (CLI overrides are used at runtime)
     "${ghostHome}/ghostty-bg.conf".text = ''
@@ -46,7 +46,7 @@ in {
       confirm-close-surface = "false";
       font-family = "Maple Mono NF";
       font-size = 12;
-      theme = "dark:catppuccin-mocha,light:catppuccin-mocha";
+      theme = "tokyonight_moon";
       adjust-cell-height = "10%";
       window-theme = "dark";
       window-height = "32";
