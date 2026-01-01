@@ -42,6 +42,7 @@ in {
   environment.systemPackages = with pkgs;
     noctaliaPkgs
     ++ [
+      virt-manager
       alejandra # nix formatter
       appimage-run # Needed For AppImage Support
       brightnessctl # For Screen Brightness Control
