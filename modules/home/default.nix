@@ -31,7 +31,6 @@ in {
       ./cli/cava.nix
       ./eza.nix
       ./fastfetch
-      ./firefox.nix
       ./cli/fzf.nix
       ./cli/gh.nix
       ./cli/git.nix
@@ -46,6 +45,7 @@ in {
       ./rofi
       ./qt.nix
       ./scripts
+      ./virtmanager.nix
       ./stylix.nix
       ./swappy.nix
       ./swaync.nix
