@@ -123,7 +123,7 @@ in {
         layers_hog_keyboard_focus = true;
         initial_workspace_tracking = 0;
         mouse_move_enables_dpms = true;
-        key_press_enables_dpms = false;
+        key_press_enables_dpms = true;
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         enable_swallow = false;
