@@ -55,7 +55,6 @@ in {
       obs-studio-plugins.wlrobs
       gnome-disk-utility
       gearlever
-      firefox-bin
       upower
       wlsunset
       tailscale
