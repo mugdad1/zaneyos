@@ -42,6 +42,7 @@ in {
   environment.systemPackages = with pkgs;
     noctaliaPkgs
     ++ [
+      audacity
       qemu_kvm
       virt-manager
       alejandra # nix formatter
