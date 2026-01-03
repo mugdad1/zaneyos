@@ -42,6 +42,7 @@ in {
   environment.systemPackages = with pkgs;
     noctaliaPkgs
     ++ [
+      flutterPackages-source.v3_35
       android-studio
       temurin-bin
       virt-manager
