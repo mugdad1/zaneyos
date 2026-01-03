@@ -42,6 +42,7 @@ in {
   environment.systemPackages = with pkgs;
     noctaliaPkgs
     ++ [
+      temurin-bin
       virt-manager
       alejandra # nix formatter
       appimage-run # Needed For AppImage Support
