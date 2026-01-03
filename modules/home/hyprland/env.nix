@@ -2,6 +2,7 @@
   wayland.windowManager.hyprland = {
     settings = {
       env = [
+        "NIXPKGS_ACCEPT_ANDROID_SDK_LICENSE, 1"
         "NIXOS_OZONE_WL, 1"
         "NIXPKGS_ALLOW_UNFREE, 1"
         "XDG_CURRENT_DESKTOP, Hyprland"
