@@ -42,7 +42,7 @@ in {
   environment.systemPackages = with pkgs;
     noctaliaPkgs
     ++ [
-      android-studio-full
+      android-studio
       temurin-bin
       virt-manager
       alejandra # nix formatter
