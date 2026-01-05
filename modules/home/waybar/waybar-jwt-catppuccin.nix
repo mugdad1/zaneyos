@@ -154,7 +154,7 @@ in {
           persistent-workspaces = {
             "*" = 10;
           };
-        };)
+        };
 
         # Integrated CAVA visualizer using the inline script above
         "custom/cava_mviz" = {

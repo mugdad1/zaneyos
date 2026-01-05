@@ -1,51 +1,54 @@
 {
-  config,
   pkgs,
   inputs,
   lib,
   ...
 }: let
   system = pkgs.stdenv.hostPlatform.system;
-  noctaliaPath = inputs.noctalia.packages.${system}.default;
-  configDir = "${noctaliaPath}/share/noctalia-shell";
+  noctaliaPkg = inputs.noctalia.packages.${system}.default;
+  configDir = "${noctaliaPkg}/share/noctalia-shell";
 in {
-  # Install the Noctalia package for this user (CLI, assets, etc.)
+  # Install the Noctalia package
   home.packages = [
-    noctaliaPath
+    noctaliaPkg
+    pkgs.quickshell # Ensure quickshell is available for the service
   ];
 
-  # Seed the Noctalia QuickShell shell code into ~/.config/quickshell/noctalia-shell
-  # once, then leave it writable so the GUI and the user can tweak it.
+  # Seed the configuration
   home.activation.seedNoctaliaShellCode = lib.hm.dag.entryAfter ["writeBoundary"] ''
     set -eu
     DEST="$HOME/.config/quickshell/noctalia-shell"
     SRC="${configDir}"
 
     if [ ! -d "$DEST" ]; then
-      mkdir -p "$HOME/.config/quickshell"
-      cp -R "$SRC" "$DEST"
-      chmod -R u+rwX "$DEST"
+      $DRY_RUN_CMD mkdir -p "$HOME/.config/quickshell"
+      $DRY_RUN_CMD cp -R "$SRC" "$DEST"
+      $DRY_RUN_CMD chmod -R u+rwX "$DEST"
     fi
   '';
 
-  # Enable the noctalia-shell systemd user service
+  # Systemd User Service
   systemd.user.services.noctalia-shell = {
     Unit = {
       Description = "Noctalia Shell - Wayland desktop shell";
-      Documentation = "https://docs.noctalia.dev/docs";
+      Documentation = ["https://docs.noctalia.dev/docs"];
       PartOf = ["graphical-session.target"];
       After = ["graphical-session-pre.target"];
-      Wants = ["graphical-session-target"];
+      Wants = ["graphical-session.target"];
     };
+
     Service = {
+      # %h is the home directory specifier for systemd
       ExecStart = "${pkgs.quickshell}/bin/quickshell --path %h/.config/quickshell/noctalia-shell";
       Restart = "always";
       RestartSec = 5;
+      # Combined QML paths for Qt6
       Environment = [
         "QML_IMPORT_PATH=${pkgs.qt6.qt5compat}/lib/qt-6/qml:${pkgs.qt6.qtbase}/lib/qt-6/qml"
         "QML2_IMPORT_PATH=${pkgs.qt6.qt5compat}/lib/qt-6/qml:${pkgs.qt6.qtbase}/lib/qt-6/qml"
       ];
     };
+
     Install = {
       WantedBy = ["graphical-session.target"];
     };
