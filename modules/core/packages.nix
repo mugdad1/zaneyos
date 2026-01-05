@@ -42,17 +42,10 @@ in {
   environment.systemPackages = with pkgs;
     noctaliaPkgs
     ++ [
-      audacity
-      qemu_kvm
-      virt-manager
-      alejandra # nix formatter
-      appimage-run # Needed For AppImage Support
-      brightnessctl # For Screen Brightness Control
-      cliphist # Clipboard manager using rofi menu
-      vscode-fhs
+## my own packages
+      vlc
       vscodium-fhs
       zapzap
-      filen-desktop
       telegram-desktop
       obs-studio-plugins.obs-gstreamer
       obs-studio-plugins.wlrobs
@@ -64,6 +57,11 @@ in {
       tailscale
       safeeyes
       onlyoffice-desktopeditors
+## zaney filtered packages
+      alejandra # nix formatter
+      appimage-run # Needed For AppImage Support
+      brightnessctl # For Screen Brightness Control
+      cliphist # Clipboard manager using rofi menu
       eza # Beautiful ls Replacement
       ffmpeg # Terminal Video / Audio Editing
       file-roller # Archive Manager
@@ -78,7 +76,6 @@ in {
       lolcat # Add Colors To Your Terminal Command Output
       lshw # Detailed Hardware Information
       mdcat # CLI markdown parser
-      vlc
       ncdu # Disk Usage Analyzer With Ncurses Interface
       nixfmt-rfc-style # Nix Formatter
       nwg-displays # configure monitor configs via GUI
