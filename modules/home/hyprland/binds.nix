@@ -27,7 +27,7 @@
   rofiBind =
     if barChoice != "noctalia"
     then [
-      "$modifier,A, Rofi Launcher, exec, rofi-launcher"
+      "$modifier,i, Rofi Launcher, exec, rofi-launcher"
       "$modifier SHIFT,Return, Rofi Launcher, exec, rofi-launcher"
     ]
     else [];
@@ -63,7 +63,7 @@ in {
         "$modifier CTRL,S, Screenshot Output, exec, hyprshot -m output -o $HOME/Pictures/ScreenShots"
         "$modifier SHIFT,S, Screenshot Window, exec, hyprshot -m window -o $HOME/Pictures/ScreenShots"
         "$modifier ALT,S, Screenshot Region, exec, hyprshot -m region -o $HOME/Pictures/ScreenShots"
-        "$modifier shift,T, Dropdown Terminal, exec, pypr toggle term"
+        "$modifier,O, OBS Studio, exec, obs"
         "$modifier,E, Thunar, exec, thunar"
         "$modifier ALT,M, Audio Control, exec, pavucontrol"
         # ============= WINDOW MANAGEMENT =============
