@@ -24,7 +24,6 @@ in {
     ./thunar.nix
     ./user.nix
     ./xserver.nix
-    ./virtualisation.nix
     ./cachix.nix
     inputs.stylix.nixosModules.stylix
   ];

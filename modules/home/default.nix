@@ -45,7 +45,6 @@ in {
       ./rofi
       ./qt.nix
       ./scripts
-      ./virtmanager.nix
       ./stylix.nix
       ./swappy.nix
       ./swaync.nix
