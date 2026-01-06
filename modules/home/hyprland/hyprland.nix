@@ -193,7 +193,7 @@ in {
     };
 
     extraConfig = "
-      monitor=,preferred,auto,1
+      monitor=,preferred,auto,auto
       ${extraMonitorSettings}
       # To enable blur on waybar uncomment the line below
       # Thanks to SchotjeChrisman
