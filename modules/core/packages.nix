@@ -43,6 +43,7 @@ in {
     noctaliaPkgs
     ++ [
       ## my own packages
+      jdk
       vlc
       vscodium-fhs
       zapzap
