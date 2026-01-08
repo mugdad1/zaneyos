@@ -42,7 +42,7 @@ in {
   environment.systemPackages = with pkgs;
     noctaliaPkgs
     ++ [
-## my own packages
+      ## my own packages
       vlc
       vscodium-fhs
       zapzap
@@ -57,7 +57,7 @@ in {
       tailscale
       safeeyes
       onlyoffice-desktopeditors
-## zaney filtered packages
+      ## zaney filtered packages
       alejandra # nix formatter
       appimage-run # Needed For AppImage Support
       brightnessctl # For Screen Brightness Control
@@ -73,7 +73,6 @@ in {
       inxi # CLI System Information Tool
       libnotify # For Notifications
       lm_sensors # Used For Getting Hardware Temps
-      lolcat # Add Colors To Your Terminal Command Output
       lshw # Detailed Hardware Information
       mdcat # CLI markdown parser
       ncdu # Disk Usage Analyzer With Ncurses Interface
