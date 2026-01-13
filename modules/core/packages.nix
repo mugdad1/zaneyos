@@ -47,12 +47,11 @@ in {
       vlc
       vscodium-fhs
       zapzap
-      telegram-desktop
+      #     telegram-desktop
       obs-studio-plugins.obs-gstreamer
       obs-studio-plugins.wlrobs
       gnome-disk-utility
       gearlever
-      firefox-bin
       upower
       wlsunset
       tailscale
