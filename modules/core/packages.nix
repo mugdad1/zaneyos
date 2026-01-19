@@ -43,6 +43,10 @@ in {
     noctaliaPkgs
     ++ [
       ## my own packages
+      mesa
+      libXtst
+      openjdk
+      openjfx
       jdk
       vlc
       vscodium-fhs
