@@ -95,7 +95,6 @@ in {
       uwsm # Universal Wayland Session Manager (optional must be enabled)
       v4l-utils # Used For Things Like OBS Virtual Camera
       wget # Tool For Fetching Files With Links
-      ytmdl # Tool For Downloading Audio From YouTube
       python3 # Python 3 programming language
     ];
 }
