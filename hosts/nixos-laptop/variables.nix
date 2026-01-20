@@ -35,7 +35,7 @@
 
   # Bar/Shell Settings
   # Choose between noctalia or waybar
-  barChoice = "waybar";
+  barChoice = "noctalia";
 
   # Waybar Settings (used when barChoice = "waybar")
   clock24h = false;
@@ -90,7 +90,7 @@
 
   # Set Waybar
   #  Available Options:
-  #waybarChoice = ../../modules/home/waybar/waybar-curved.nix;
+  waybarChoice = ../../modules/home/waybar/waybar-curved.nix;
   #waybarChoice = ../../modules/home/waybar/waybar-ddubs.nix;
   #waybarChoice = ../../modules/home/waybar/waybar-ddubs-2.nix;
   #waybarChoice = ../../modules/home/waybar/waybar-simple.nix;
@@ -105,7 +105,7 @@
   #waybarChoice = ../../modules/home/waybar/waybar-jak-catppuccin.nix;
   #waybarChoice = ../../modules/home/waybar/waybar-jak-ml4w-modern.nix;
   #waybarChoice = ../../modules/home/waybar/waybar-jak-oglo-simple.nix;
-  waybarChoice = ../../modules/home/waybar/waybar-jwt-catppuccin.nix;
+  #waybarChoice = ../../modules/home/waybar/waybar-jwt-catppuccin.nix;
   #waybarChoice = ../../modules/home/waybar/waybar-jwt-transparent.nix;
   #waybarChoice = ../../modules/home/waybar/waybar-jwt-ultradark.nix;
   #waybarChoice = ../../modules/home/waybar/waybar-pctrade-catppuccin.nix;
