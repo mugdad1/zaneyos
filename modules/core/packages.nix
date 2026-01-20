@@ -42,12 +42,7 @@ in {
   environment.systemPackages = with pkgs;
     noctaliaPkgs
     ++ [
-      ## my own packages
-      mesa
-      libXtst
-      openjdk
-      openjfx
-      jdk
+      ## my own package
       vlc
       vscodium-fhs
       zapzap
