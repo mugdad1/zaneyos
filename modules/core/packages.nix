@@ -50,6 +50,7 @@ in {
       obs-studio-plugins.wlrobs
       gnome-disk-utility
       gearlever
+      telegram-desktop
       upower
       wlsunset
       tailscale
