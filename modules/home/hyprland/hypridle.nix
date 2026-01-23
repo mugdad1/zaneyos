@@ -2,6 +2,7 @@
   services = {
     hypridle = {
       enable = true;
+      systemdTarget = "hyprland-session.target";
       settings = {
         general = {
           after_sleep_cmd = "hyprctl dispatch dpms on";
