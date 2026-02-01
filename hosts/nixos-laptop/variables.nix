@@ -7,7 +7,7 @@
   # `tui` for Text login
   # `sddm` for graphical GUI (default)
   # SDDM background is set with stylixImage
-  displayManager = "sddm";
+  displayManager = "tui";
 
   # Emable/disable bundled applications
   tmuxEnable = false;
@@ -35,7 +35,7 @@
 
   # Bar/Shell Settings
   # Choose between noctalia or waybar
-  barChoice = "waybar";
+  barChoice = "noctalia";
 
   # Waybar Settings (used when barChoice = "waybar")
   clock24h = false;
