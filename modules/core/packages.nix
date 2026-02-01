@@ -43,6 +43,7 @@ in {
     noctaliaPkgs
     ++ [
       ## my own package
+      tuigreet
       vlc
       vscodium-fhs
       zapzap
