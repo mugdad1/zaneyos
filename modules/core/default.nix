@@ -16,7 +16,6 @@ in {
     ./nh.nix
     ./quickshell.nix
     ./packages.nix
-    ./sddm.nix
     ./security.nix
     ./services.nix
     ./stylix.nix
