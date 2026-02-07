@@ -57,7 +57,6 @@ in {
       wlsunset
       safeeyes
       onlyoffice-desktopeditors
-      filen-desktop
       ## zaney filtered packages
       alejandra # nix formatter
       appimage-run # Needed For AppImage Support
