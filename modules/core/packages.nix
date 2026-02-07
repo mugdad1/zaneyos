@@ -53,8 +53,8 @@ in {
       gearlever
       telegram-desktop
       upower
-      wlsunset
       tailscale
+      wlsunset
       safeeyes
       onlyoffice-desktopeditors
       ## zaney filtered packages
