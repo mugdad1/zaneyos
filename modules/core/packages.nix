@@ -54,6 +54,7 @@ in {
       telegram-desktop
       upower
       tailscale
+      jetbrains.idea
       wlsunset
       safeeyes
       onlyoffice-desktopeditors
