@@ -193,7 +193,8 @@ in {
     };
 
     extraConfig = "
-      monitor=,preferred,auto,1.33
+      monitor=eDP-1,1920x1080@60.0,0x0,1.5
+      monitor=HDMI-A-1,1024x768@60.0,1280x0,1.0,mirror,eDP-1
       ${extraMonitorSettings}
       # To enable blur on waybar uncomment the line below
       # Thanks to SchotjeChrisman
