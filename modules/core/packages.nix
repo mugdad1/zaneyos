@@ -52,6 +52,7 @@ in {
       gnome-disk-utility
       telegram-desktop
       upower
+      kdePackages.kdenlive
       tailscale
       jetbrains.idea
       wlsunset
