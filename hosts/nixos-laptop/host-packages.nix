@@ -1,6 +1,12 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    discord
-    nodejs
+    #  Add local pacakaged here
   ];
+  # Add host specific flatpaks here
+  services = {
+    flatpak = {
+      packages = [
+      ];
+    };
+  };
 }

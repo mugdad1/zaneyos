@@ -9,7 +9,8 @@ in {
       jsonnet-language-server
       luaformatter
       lua-language-server
-      marksman
+      #marksman   # causes dotnet and dotnet-swr to build which takes hours
+      multimarkdown
       taplo
       nil
       jq-lsp
