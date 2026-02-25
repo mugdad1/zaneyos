@@ -440,11 +440,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1772023677,
-        "narHash": "sha256-GrYINtB0K1yTIr+mBGM+aoDt16ulZ532W2dS36LivGU=",
+        "lastModified": 1772033909,
+        "narHash": "sha256-foY+HSXvWGvF3TLZR5mi+MRVPQJCEGi2MJ5A8Evb0Zg=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "fc2cf3651b62641be43f0112262e22d29fb6c82a",
+        "rev": "72f0931b013936951a1c56b490522587509d6bdf",
         "type": "github"
       },
       "original": {
@@ -514,19 +514,41 @@
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
-        ]
+        ],
+        "noctalia-qs": "noctalia-qs"
       },
       "locked": {
-        "lastModified": 1772023201,
-        "narHash": "sha256-ubbo1zWZVK2qwtGeTq+oH56okUvf2p1JjpubdAqHSdI=",
+        "lastModified": 1772037803,
+        "narHash": "sha256-307PELik0fSETKF0xwM2uAeIsFZTkOApEMnZ2wcTpA4=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "f5ad38234b76c069858775f019123b8201bac454",
+        "rev": "2e43e5348e290220d65b024aa543fc672b05a3cc",
         "type": "github"
       },
       "original": {
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
+        "type": "github"
+      }
+    },
+    "noctalia-qs": {
+      "inputs": {
+        "nixpkgs": [
+          "noctalia",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1771796397,
+        "narHash": "sha256-lbZkAMNQl5Ymqhdvp46K8hubZ7n7KQRPnTP5bNJzMSk=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia-qs",
+        "rev": "1711c5a20b74a31b703394164c5d2d9561f13ee9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "noctalia-qs",
         "type": "github"
       }
     },
@@ -538,11 +560,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1772024343,
-        "narHash": "sha256-swDs4iqfRg3XDhpzwy3AIc+CT0SDR024opIblTOxqIM=",
+        "lastModified": 1772039566,
+        "narHash": "sha256-sP6nb7ieE6rUMMTmmPJZb+Sa/PhptboOgDNGiVCGSVM=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "7b3a9935f14f6090d42d79201bf520e9090574e1",
+        "rev": "f6e20d329a3d65c6b7ad47772b0b4a53c497e32d",
         "type": "github"
       },
       "original": {

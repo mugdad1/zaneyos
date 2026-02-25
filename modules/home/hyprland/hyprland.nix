@@ -194,7 +194,6 @@ in {
 
     extraConfig = "
       monitor=eDP-1,1920x1080@60.0,0x0,1.5,bitdepth,10
-      monitor=,auto,auto
 
       ${extraMonitorSettings}
       # To enable blur on waybar uncomment the line below
