@@ -30,7 +30,7 @@
   # You can configure multiple monitors.
   # Inside the quotes, create a new line for each monitor.
   extraMonitorSettings = "
-
+    monitor=eDP-1,1920x1080@60.0,0x0,1.33
     ";
 
   # Bar/Shell Settings
