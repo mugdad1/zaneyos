@@ -45,7 +45,7 @@
   # This does NOT install your browser
   # You need to install it by adding it to the `packages.nix`
   # or as a flatpak
-  browser = "zen";
+  browser = "librewolf";
 
   # Available Options:
   # Kitty, ghostty, wezterm, aalacrity

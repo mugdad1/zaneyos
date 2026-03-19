@@ -17,15 +17,34 @@
     nvf.url = "github:notashelf/nvf";
     stylix.url = "github:danth/stylix/release-25.11";
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
-    noctalia = { url = "github:noctalia-dev/noctalia-shell"; inputs.nixpkgs.follows = "nixpkgs"; };
-    nixvim = { url = "github:nix-community/nixvim/nixos-25.11"; inputs.nixpkgs.follows = "nixpkgs"; };
-    antigravity-nix = { url = "github:jacopone/antigravity-nix"; inputs.nixpkgs.follows = "nixpkgs"; };
-    zen-browser = { url = "github:youwen5/zen-browser-flake"; inputs.nixpkgs.follows = "nixpkgs"; };
-    alejandra = { url = "github:kamadorueda/alejandra"; inputs.nixpkgs.follows = "nixpkgs"; };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    antigravity-nix = {
+      url = "github:jacopone/antigravity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    alejandra = {
+      url = "github:kamadorueda/alejandra";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, nix-flatpak, nixvim, alejandra, ... } @ inputs:
-  let
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    nur,
+    nix-flatpak,
+    nixvim,
+    alejandra,
+    ...
+  } @ inputs: let
     system = "x86_64-linux";
     host = "nixos-laptop";
     profile = "intel";
@@ -36,18 +55,18 @@
       overlays = []; # no need to overlay NUR here
     };
 
-    mkNixosConfig = gpuProfile: nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit inputs username host profile; };
+    mkNixosConfig = gpuProfile:
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs username host profile;};
 
-      modules = [
-        ./modules/core/overlays.nix
-        ./profiles/${gpuProfile}
-        nix-flatpak.nixosModules.nix-flatpak
-      ];
-    };
-  in
-  {
+        modules = [
+          ./modules/core/overlays.nix
+          ./profiles/${gpuProfile}
+          nix-flatpak.nixosModules.nix-flatpak
+        ];
+      };
+  in {
     nixosConfigurations = {
       amd = mkNixosConfig "amd";
       nvidia = mkNixosConfig "nvidia";
@@ -60,4 +79,3 @@
     formatter.${system} = alejandra.packages.${system}.default;
   };
 }
-
