@@ -130,7 +130,7 @@ in
 
     # --- Configuration ---
     PROJECT="zaneyos"   #ddubos or zaneyos
-    PROFILE="${profile}"
+    PROFILE_DEFAULT="${profile}"
     BACKUP_FILES_STR="${backupFilesString}"
     VERSION="1.0.2"
     FLAKE_NIX_PATH="$HOME/$PROJECT/flake.nix"
@@ -138,6 +138,13 @@ in
     read -r -a BACKUP_FILES <<< "$BACKUP_FILES_STR"
 
     # --- Helper Functions ---
+    get_flake_profile() {
+      local flake_profile=""
+      if [ -f "$FLAKE_NIX_PATH" ]; then
+        flake_profile=$(${pkgs.gnugrep}/bin/grep -E '^[[:space:]]*profile[[:space:]]*=' "$FLAKE_NIX_PATH" | ${pkgs.gnused}/bin/sed 's/.*=[[:space:]]*"\([^"]*\)".*/\1/')
+      fi
+      echo "$flake_profile"
+    }
     verify_hostname() {
       local current_hostname
       local flake_hostname
@@ -230,6 +237,11 @@ in
       local has_intel=false
       local has_amd=false
       local has_vm=false
+      # Prefer hypervisor detection first to avoid misclassifying VMs as AMD
+      if ${pkgs.systemd}/bin/systemd-detect-virt -q; then
+        echo "vm"
+        return
+      fi
 
       if ${pkgs.pciutils}/bin/lspci &> /dev/null; then # Check if lspci is available
         if ${pkgs.pciutils}/bin/lspci | ${pkgs.gnugrep}/bin/grep -qi 'vga\|3d\|display'; then
@@ -240,7 +252,7 @@ in
               has_amd=true
             elif echo "$line" | ${pkgs.gnugrep}/bin/grep -qi 'intel'; then
               has_intel=true
-            elif echo "$line" | ${pkgs.gnugrep}/bin/grep -qi 'virtio\|vmware'; then
+            elif echo "$line" | ${pkgs.gnugrep}/bin/grep -qi 'virtio\|vmware\|qxl\|qemu\|virtualbox\|bochs\|hyper-v\|microsoft'; then
               has_vm=true
             fi
           done < <(${pkgs.pciutils}/bin/lspci | ${pkgs.gnugrep}/bin/grep -i 'vga\|3d\|display')
@@ -336,6 +348,10 @@ in
     }
 
     # --- Main Logic ---
+    PROFILE="$(get_flake_profile)"
+    if [ -z "$PROFILE" ]; then
+      PROFILE="$PROFILE_DEFAULT"
+    fi
     if [ "$#" -eq 0 ]; then
       echo "Error: No command provided." >&2
       print_help
