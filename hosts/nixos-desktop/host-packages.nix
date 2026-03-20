@@ -1,14 +1,5 @@
 {pkgs, ...}: {
-  environment.systemPackages = with pkgs; 
-  ++ [
-  amdsmi
-  
+  environment.systemPackages = with pkgs; [
+    rocmPackages.amdsmi
   ];
-  # Add host specific flatpaks here
-  services = {
-    flatpak = {
-      packages = [
-      ];
-    };
-  };
 }
