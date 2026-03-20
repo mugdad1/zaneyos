@@ -61,7 +61,7 @@
       ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
       cat = "bat";
       man = "batman";
-      g = "git fetch && git pull && git add . && git commit -m 'd' && git push";
+      g = "cd ~/zaneyos/ && git fetch && git pull && git add . && git commit -m 'd' && git push";
     };
   };
 }
