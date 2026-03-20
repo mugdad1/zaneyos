@@ -57,7 +57,7 @@ in {
       jetbrains.idea
       wlsunset
       safeeyes
-      librewolf-bin-unwrapped
+      librewolf-unwrapped
       onlyoffice-desktopeditors
       ## zaney filtered packages
       alejandra # nix formatter

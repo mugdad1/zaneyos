@@ -578,11 +578,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773892985,
-        "narHash": "sha256-2pxMVrniHkDVtql+1M3HbvWzfQMQ1513+q4aRDlpg5A=",
+        "lastModified": 1773897253,
+        "narHash": "sha256-PSR5O0nTsICfanrdzyPmZdW30Z4Fov9UnnYD9/jQE2I=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "54e2143189a70f1582b7ecc0d67bb4c42b15df26",
+        "rev": "1b0839bc5d77e71206c259348ce73826ae6da1b9",
         "type": "github"
       },
       "original": {
@@ -673,8 +673,7 @@
         "noctalia": "noctalia",
         "nur": "nur",
         "nvf": "nvf",
-        "stylix": "stylix",
-        "zen-browser": "zen-browser"
+        "stylix": "stylix"
       }
     },
     "rust-analyzer-src": {
@@ -913,26 +912,6 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "type": "github"
-      }
-    },
-    "zen-browser": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1773722260,
-        "narHash": "sha256-U8MsSiqqYZHR3oKE+cCZ2AJt3b4LcXs+oQuNLipaO78=",
-        "owner": "youwen5",
-        "repo": "zen-browser-flake",
-        "rev": "0e6e43342fb3e9a3439fafa777d8cdf98e4ffc49",
-        "type": "github"
-      },
-      "original": {
-        "owner": "youwen5",
-        "repo": "zen-browser-flake",
         "type": "github"
       }
     }
