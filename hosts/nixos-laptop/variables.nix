@@ -1,7 +1,7 @@
 {
   # Git Configuration ( For Pulling Software Repos )
   gitUsername = "mugdad";
-  gitEmail = "mugdad@example.com";
+  gitEmail = "mugdad02@tutamail.com";
 
   # Set Displau Manager
   # `tui` for Text login
@@ -35,7 +35,7 @@
 
   # Bar/Shell Settings
   # Choose between noctalia or waybar
-  barChoice = "waybar";
+  barChoice = "noctalia";
 
   # Waybar Settings (used when barChoice = "waybar")
   clock24h = false;
