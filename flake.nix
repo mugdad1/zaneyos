@@ -46,8 +46,8 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    host = "nixos-desktop";
-    profile = "amd";
+    host = "nixos-laptop";
+    profile = "intel";
     username = "mugdad";
 
     pkgs = import nixpkgs {

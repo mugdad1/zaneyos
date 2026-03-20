@@ -1,7 +1,7 @@
 {
   # Git Configuration ( For Pulling Software Repos )
   gitUsername = "mugdad";
-  gitEmail = "mugdad02@tutamail.com";
+  gitEmail = "mugdad@example.com";
 
   # Set Displau Manager
   # `tui` for Text login
